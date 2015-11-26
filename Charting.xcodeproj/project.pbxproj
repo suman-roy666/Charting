@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C13AE1C05C0A7007FDF2D /* SignInViewController.m */; };
 		116A08BC1C05933800AA46D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BB1C05933800AA46D8 /* main.m */; };
 		116A08BF1C05933800AA46D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BE1C05933800AA46D8 /* AppDelegate.m */; };
 		116A08C21C05933800AA46D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08C11C05933800AA46D8 /* ViewController.m */; };
@@ -14,6 +15,7 @@
 		116A08C71C05933800AA46D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116A08C61C05933800AA46D8 /* Images.xcassets */; };
 		116A08CA1C05933800AA46D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116A08C81C05933800AA46D8 /* LaunchScreen.xib */; };
 		116A08D61C05933800AA46D8 /* ChartingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08D51C05933800AA46D8 /* ChartingTests.m */; };
+		116A08E11C0599BC00AA46D8 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08E01C0599BC00AA46D8 /* PageContentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		112C13AD1C05C0A7007FDF2D /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		112C13AE1C05C0A7007FDF2D /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		116A08B61C05933800AA46D8 /* Charting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		116A08BA1C05933800AA46D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		116A08BB1C05933800AA46D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +44,8 @@
 		116A08CF1C05933800AA46D8 /* ChartingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChartingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		116A08D41C05933800AA46D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		116A08D51C05933800AA46D8 /* ChartingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartingTests.m; sourceTree = "<group>"; };
+		116A08DF1C0599BC00AA46D8 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		116A08E01C0599BC00AA46D8 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,10 @@
 				116A08C61C05933800AA46D8 /* Images.xcassets */,
 				116A08C81C05933800AA46D8 /* LaunchScreen.xib */,
 				116A08B91C05933800AA46D8 /* Supporting Files */,
+				116A08DF1C0599BC00AA46D8 /* PageContentViewController.h */,
+				116A08E01C0599BC00AA46D8 /* PageContentViewController.m */,
+				112C13AD1C05C0A7007FDF2D /* SignInViewController.h */,
+				112C13AE1C05C0A7007FDF2D /* SignInViewController.m */,
 			);
 			path = Charting;
 			sourceTree = "<group>";
@@ -219,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */,
 				116A08C21C05933800AA46D8 /* ViewController.m in Sources */,
+				116A08E11C0599BC00AA46D8 /* PageContentViewController.m in Sources */,
 				116A08BF1C05933800AA46D8 /* AppDelegate.m in Sources */,
 				116A08BC1C05933800AA46D8 /* main.m in Sources */,
 			);
@@ -416,6 +428,7 @@
 				116A08DB1C05933800AA46D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		116A08DC1C05933800AA46D8 /* Build configuration list for PBXNativeTarget "ChartingTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +437,7 @@
 				116A08DE1C05933800AA46D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
