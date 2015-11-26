@@ -53,7 +53,6 @@
                                     <rect key="frame" x="42" y="514" width="48" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="signInUser:" destination="CtW-SX-UqC" eventType="touchUpInside" id="hbn-Q1-2eI"/>
                                     <action selector="userSignIn:" destination="CtW-SX-UqC" eventType="touchUpInside" id="XLu-Rg-5qV"/>
                                 </connections>
                             </button>
@@ -69,6 +68,12 @@
                                     <action selector="userSignUp:" destination="CtW-SX-UqC" eventType="touchUpInside" id="hOI-Mh-JrS"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="giN-Ke-YeL">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="370" width="20" height="20"/>
+                                </variation>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -77,6 +82,7 @@
                                 <exclude reference="DcD-3O-w9W"/>
                                 <exclude reference="lfA-Jn-hcl"/>
                                 <exclude reference="nUU-sC-M2d"/>
+                                <exclude reference="giN-Ke-YeL"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -85,11 +91,13 @@
                                 <include reference="DcD-3O-w9W"/>
                                 <include reference="lfA-Jn-hcl"/>
                                 <include reference="nUU-sC-M2d"/>
+                                <include reference="giN-Ke-YeL"/>
                             </mask>
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="loginIndicator" destination="giN-Ke-YeL" id="jTY-AX-Ze6"/>
                         <outlet property="passwordTextField" destination="DcD-3O-w9W" id="dK9-sv-f78"/>
                         <outlet property="userNameTextField" destination="Py9-tu-z0c" id="yNz-ka-FwY"/>
                     </connections>
@@ -97,6 +105,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTB-VD-u9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2619" y="132"/>
+        </scene>
+        <!--Discovery View Controller-->
+        <scene sceneID="qcY-XD-QmM">
+            <objects>
+                <viewController storyboardIdentifier="DiscoveryViewController" id="HD1-ug-sRP" customClass="DiscoveryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V9D-sw-trb"/>
+                        <viewControllerLayoutGuide type="bottom" id="pRX-ag-cjw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kam-z2-y73">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1F-WX-gcA">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="182" y="284" width="71" height="21"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="D1F-WX-gcA"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="D1F-WX-gcA"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6mp-uT-FX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3579.75" y="127.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
