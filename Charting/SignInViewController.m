@@ -7,7 +7,7 @@
 //
 
 #import "SignInViewController.h"
-#import "DiscoveryViewController.h"
+#import "ChannelViewController.h"
 #import "SignUpViewController.h"
 #import "User.h"
 
@@ -53,10 +53,9 @@ static NSString *userLoginURL = @"user/login/%@/%@/DIV005/0/";
     
     
     NSMutableURLRequest *request =
-    [NSMutableURLRequest requestWithURL:[NSURL
-                                         URLWithString:[serverAddress stringByAppendingString:[ NSString stringWithFormat:userLoginURL, userName, userPass ]]]
-                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                        timeoutInterval:10
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[serverAddress stringByAppendingString:[ NSString stringWithFormat:userLoginURL, userName, userPass ]]]
+                            cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                        timeoutInterval: 10
      ];
     
     [request setHTTPMethod: @"GET"];

@@ -31,7 +31,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="139" y="136" width="97" height="30"/>
+                                    <rect key="frame" x="61" y="136" width="248" height="30"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ME5-ii-5ee">
@@ -39,15 +39,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="139" y="258" width="97" height="30"/>
-                                </variation>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmC-ei-Imy">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="139" y="380" width="97" height="30"/>
+                                    <rect key="frame" x="61" y="258" width="248" height="30"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="34o-hb-OgG">
@@ -55,7 +47,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="139" y="502" width="97" height="30"/>
+                                    <rect key="frame" x="61" y="502" width="248" height="30"/>
                                 </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzC-GV-sIq">
@@ -106,32 +98,40 @@
                                     <action selector="userSignUp:" destination="jbI-it-o0W" eventType="touchUpInside" id="ond-o4-w8U"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmC-ei-Imy">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="61" y="380" width="248" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="WTd-ed-yhR"/>
                                 <exclude reference="ME5-ii-5ee"/>
-                                <exclude reference="hmC-ei-Imy"/>
                                 <exclude reference="34o-hb-OgG"/>
                                 <exclude reference="dzC-GV-sIq"/>
                                 <exclude reference="GV9-7U-M3T"/>
                                 <exclude reference="bb5-GU-as2"/>
                                 <exclude reference="cD9-P6-hpn"/>
                                 <exclude reference="BRv-kK-cDj"/>
+                                <exclude reference="hmC-ei-Imy"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="WTd-ed-yhR"/>
                                 <include reference="ME5-ii-5ee"/>
-                                <include reference="hmC-ei-Imy"/>
                                 <include reference="34o-hb-OgG"/>
                                 <include reference="dzC-GV-sIq"/>
                                 <include reference="GV9-7U-M3T"/>
                                 <include reference="bb5-GU-as2"/>
                                 <include reference="cD9-P6-hpn"/>
                                 <include reference="BRv-kK-cDj"/>
+                                <include reference="hmC-ei-Imy"/>
                             </mask>
                         </variation>
                     </view>
@@ -145,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfx-UL-9O4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2599.5" y="-754"/>
+            <point key="canvasLocation" x="3578.25" y="-324.5"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="HqR-hb-x95">
@@ -159,24 +159,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Py9-tu-z0c">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="139" y="127" width="97" height="30"/>
-                                </variation>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-3O-w9W">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <rect key="frame" x="139" y="243" width="97" height="30"/>
-                                </variation>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfA-Jn-hcl">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Sign In">
@@ -207,13 +189,31 @@
                                     <rect key="frame" x="177" y="370" width="20" height="20"/>
                                 </variation>
                             </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Py9-tu-z0c">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="70" y="178" width="255" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DcD-3O-w9W">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <rect key="frame" x="70" y="294" width="255" height="30"/>
+                                </variation>
+                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6lB-dF-m8y">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="70" y="76" width="86" height="21"/>
+                                    <rect key="frame" x="70" y="127" width="86" height="21"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7k-ve-Stt">
@@ -222,29 +222,29 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="70" y="211" width="76" height="21"/>
+                                    <rect key="frame" x="70" y="262" width="76" height="21"/>
                                 </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Py9-tu-z0c"/>
-                                <exclude reference="DcD-3O-w9W"/>
                                 <exclude reference="lfA-Jn-hcl"/>
                                 <exclude reference="nUU-sC-M2d"/>
                                 <exclude reference="giN-Ke-YeL"/>
+                                <exclude reference="Py9-tu-z0c"/>
+                                <exclude reference="DcD-3O-w9W"/>
                                 <exclude reference="6lB-dF-m8y"/>
                                 <exclude reference="j7k-ve-Stt"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="Py9-tu-z0c"/>
-                                <include reference="DcD-3O-w9W"/>
                                 <include reference="lfA-Jn-hcl"/>
                                 <include reference="nUU-sC-M2d"/>
                                 <include reference="giN-Ke-YeL"/>
+                                <include reference="Py9-tu-z0c"/>
+                                <include reference="DcD-3O-w9W"/>
                                 <include reference="6lB-dF-m8y"/>
                                 <include reference="j7k-ve-Stt"/>
                             </mask>
@@ -260,12 +260,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dTB-VD-u9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3536.25" y="131.5"/>
+            <point key="canvasLocation" x="3578.25" y="649.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="yI9-1R-epx">
             <objects>
-                <viewController id="Zer-GK-mLT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChannelViewController" id="Zer-GK-mLT" customClass="ChannelViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9ex-8h-NYh"/>
                         <viewControllerLayoutGuide type="bottom" id="sGB-Jl-hm6"/>
