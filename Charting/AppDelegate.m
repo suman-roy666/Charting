@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SignInViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,16 @@
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
     pageControl.backgroundColor = [UIColor whiteColor];
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    SignInViewController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
+    
+    self.window.rootViewController = rootController;
+    [self.window makeKeyAndVisible];
     
     return YES; 
 }

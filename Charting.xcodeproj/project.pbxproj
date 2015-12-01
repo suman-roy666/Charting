@@ -16,7 +16,12 @@
 		116A08CA1C05933800AA46D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116A08C81C05933800AA46D8 /* LaunchScreen.xib */; };
 		116A08D61C05933800AA46D8 /* ChartingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08D51C05933800AA46D8 /* ChartingTests.m */; };
 		116A08E11C0599BC00AA46D8 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08E01C0599BC00AA46D8 /* PageContentViewController.m */; };
+		1183885F1C0C0B74007BD518 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1183885E1C0C0B74007BD518 /* User.m */; };
+		118388621C0C1DDB007BD518 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118388611C0C1DDB007BD518 /* SignUpViewController.m */; };
 		11FED8E81C06F66400DF9625 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FED8E71C06F66400DF9625 /* DiscoveryViewController.m */; };
+		11FED8EB1C07101C00DF9625 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FED8EA1C07101C00DF9625 /* LogoutViewController.m */; };
+		11FED8F11C0735EC00DF9625 /* VideoInfoViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FED8EF1C0735EC00DF9625 /* VideoInfoViewCell.m */; };
+		11FED8F21C0735EC00DF9625 /* VideoInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11FED8F01C0735EC00DF9625 /* VideoInfoViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +52,17 @@
 		116A08D51C05933800AA46D8 /* ChartingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartingTests.m; sourceTree = "<group>"; };
 		116A08DF1C0599BC00AA46D8 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
 		116A08E01C0599BC00AA46D8 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		1183885D1C0C0B74007BD518 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		1183885E1C0C0B74007BD518 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		118388601C0C1DDB007BD518 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		118388611C0C1DDB007BD518 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		11FED8E61C06F66400DF9625 /* DiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryViewController.h; sourceTree = "<group>"; };
 		11FED8E71C06F66400DF9625 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
+		11FED8E91C07101C00DF9625 /* LogoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutViewController.h; sourceTree = "<group>"; };
+		11FED8EA1C07101C00DF9625 /* LogoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutViewController.m; sourceTree = "<group>"; };
+		11FED8EE1C0735EC00DF9625 /* VideoInfoViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoInfoViewCell.h; sourceTree = "<group>"; };
+		11FED8EF1C0735EC00DF9625 /* VideoInfoViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoInfoViewCell.m; sourceTree = "<group>"; };
+		11FED8F01C0735EC00DF9625 /* VideoInfoViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoInfoViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,20 +104,13 @@
 		116A08B81C05933800AA46D8 /* Charting */ = {
 			isa = PBXGroup;
 			children = (
+				1183885C1C0C0B5F007BD518 /* Data Models */,
+				11FED8ED1C07138A00DF9625 /* UI */,
+				11FED8EC1C07137700DF9625 /* View Controllers */,
 				116A08BD1C05933800AA46D8 /* AppDelegate.h */,
 				116A08BE1C05933800AA46D8 /* AppDelegate.m */,
-				116A08C01C05933800AA46D8 /* ViewController.h */,
-				116A08C11C05933800AA46D8 /* ViewController.m */,
-				116A08C31C05933800AA46D8 /* Main.storyboard */,
 				116A08C61C05933800AA46D8 /* Images.xcassets */,
-				116A08C81C05933800AA46D8 /* LaunchScreen.xib */,
 				116A08B91C05933800AA46D8 /* Supporting Files */,
-				116A08DF1C0599BC00AA46D8 /* PageContentViewController.h */,
-				116A08E01C0599BC00AA46D8 /* PageContentViewController.m */,
-				112C13AD1C05C0A7007FDF2D /* SignInViewController.h */,
-				112C13AE1C05C0A7007FDF2D /* SignInViewController.m */,
-				11FED8E61C06F66400DF9625 /* DiscoveryViewController.h */,
-				11FED8E71C06F66400DF9625 /* DiscoveryViewController.m */,
 			);
 			path = Charting;
 			sourceTree = "<group>";
@@ -132,6 +139,46 @@
 				116A08D41C05933800AA46D8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1183885C1C0C0B5F007BD518 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				1183885D1C0C0B74007BD518 /* User.h */,
+				1183885E1C0C0B74007BD518 /* User.m */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		11FED8EC1C07137700DF9625 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				116A08C01C05933800AA46D8 /* ViewController.h */,
+				116A08C11C05933800AA46D8 /* ViewController.m */,
+				116A08DF1C0599BC00AA46D8 /* PageContentViewController.h */,
+				116A08E01C0599BC00AA46D8 /* PageContentViewController.m */,
+				112C13AD1C05C0A7007FDF2D /* SignInViewController.h */,
+				112C13AE1C05C0A7007FDF2D /* SignInViewController.m */,
+				11FED8E61C06F66400DF9625 /* DiscoveryViewController.h */,
+				11FED8E71C06F66400DF9625 /* DiscoveryViewController.m */,
+				11FED8E91C07101C00DF9625 /* LogoutViewController.h */,
+				11FED8EA1C07101C00DF9625 /* LogoutViewController.m */,
+				118388601C0C1DDB007BD518 /* SignUpViewController.h */,
+				118388611C0C1DDB007BD518 /* SignUpViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		11FED8ED1C07138A00DF9625 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				116A08C31C05933800AA46D8 /* Main.storyboard */,
+				116A08C81C05933800AA46D8 /* LaunchScreen.xib */,
+				11FED8EE1C0735EC00DF9625 /* VideoInfoViewCell.h */,
+				11FED8EF1C0735EC00DF9625 /* VideoInfoViewCell.m */,
+				11FED8F01C0735EC00DF9625 /* VideoInfoViewCell.xib */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11FED8F21C0735EC00DF9625 /* VideoInfoViewCell.xib in Resources */,
 				116A08C51C05933800AA46D8 /* Main.storyboard in Resources */,
 				116A08CA1C05933800AA46D8 /* LaunchScreen.xib in Resources */,
 				116A08C71C05933800AA46D8 /* Images.xcassets in Resources */,
@@ -236,8 +284,12 @@
 			files = (
 				112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */,
 				116A08C21C05933800AA46D8 /* ViewController.m in Sources */,
+				1183885F1C0C0B74007BD518 /* User.m in Sources */,
 				116A08E11C0599BC00AA46D8 /* PageContentViewController.m in Sources */,
 				11FED8E81C06F66400DF9625 /* DiscoveryViewController.m in Sources */,
+				11FED8F11C0735EC00DF9625 /* VideoInfoViewCell.m in Sources */,
+				118388621C0C1DDB007BD518 /* SignUpViewController.m in Sources */,
+				11FED8EB1C07101C00DF9625 /* LogoutViewController.m in Sources */,
 				116A08BF1C05933800AA46D8 /* AppDelegate.m in Sources */,
 				116A08BC1C05933800AA46D8 /* main.m in Sources */,
 			);
