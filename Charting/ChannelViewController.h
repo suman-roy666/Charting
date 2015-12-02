@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CAPSPageMenu.h"
 
-@interface ChannelViewController : UIViewController
+@interface ChannelViewController : UIViewController < CAPSPageMenuDelegate >
+
+@property (nonatomic) CAPSPageMenu *pageMenu;
 
 @end

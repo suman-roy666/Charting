@@ -10,4 +10,13 @@
 
 @interface VideoInfoViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *videoUserNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *videoNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *videoDurationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *videoLikeCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *videoCommentCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *videoViewCountLabel;
+@property (weak, nonatomic) IBOutlet UIView *userNameView;
+
+
 @end

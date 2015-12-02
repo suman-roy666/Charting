@@ -28,7 +28,7 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    SignInViewController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
+    SignInViewController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     
     self.window.rootViewController = rootController;
     [self.window makeKeyAndVisible];
