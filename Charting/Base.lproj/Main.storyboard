@@ -99,6 +99,12 @@
                                     <action selector="userSignUp:" destination="jbI-it-o0W" eventType="touchUpInside" id="ond-o4-w8U"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CvZ-KX-cbx">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="324" width="20" height="20"/>
+                                </variation>
+                            </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hmC-ei-Imy">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -119,6 +125,7 @@
                                 <exclude reference="bb5-GU-as2"/>
                                 <exclude reference="cD9-P6-hpn"/>
                                 <exclude reference="BRv-kK-cDj"/>
+                                <exclude reference="CvZ-KX-cbx"/>
                                 <exclude reference="hmC-ei-Imy"/>
                             </mask>
                         </variation>
@@ -132,6 +139,7 @@
                                 <include reference="bb5-GU-as2"/>
                                 <include reference="cD9-P6-hpn"/>
                                 <include reference="BRv-kK-cDj"/>
+                                <include reference="CvZ-KX-cbx"/>
                                 <include reference="hmC-ei-Imy"/>
                             </mask>
                         </variation>
@@ -141,6 +149,7 @@
                         <outlet property="confirmPasswordTextField" destination="34o-hb-OgG" id="2It-FX-4cE"/>
                         <outlet property="emailTextField" destination="WTd-ed-yhR" id="mq5-2f-lJc"/>
                         <outlet property="passwordTextField" destination="hmC-ei-Imy" id="ymI-Qj-XzN"/>
+                        <outlet property="signUpActivityIndicator" destination="CvZ-KX-cbx" id="hsW-fb-S8p"/>
                         <outlet property="userNameTextField" destination="ME5-ii-5ee" id="g6V-4r-OBe"/>
                     </connections>
                 </viewController>
@@ -184,10 +193,10 @@
                                     <action selector="userSignUp:" destination="CtW-SX-UqC" eventType="touchUpInside" id="hOI-Mh-JrS"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="giN-Ke-YeL">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="giN-Ke-YeL">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="177" y="370" width="20" height="20"/>
+                                    <rect key="frame" x="177" y="370" width="37" height="37"/>
                                 </variation>
                             </activityIndicatorView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Py9-tu-z0c">

@@ -23,6 +23,8 @@ static NSString *userSignUpURL = @"user/createUser";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [ self.signUpActivityIndicator setHidden:YES ];
     // Do any additional setup after loading the view.
 }
 
@@ -73,6 +75,8 @@ static NSString *userSignUpURL = @"user/createUser";
     
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
+    [ self.signUpActivityIndicator startAnimating ];
+    
     if(conn) {
         NSLog(@"Connection Successful");
     } else {
@@ -104,6 +108,8 @@ static NSString *userSignUpURL = @"user/createUser";
 
 // This method is used to process the data after connection has made successfully.
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+    
+    [ self.signUpActivityIndicator stopAnimating ];
     
     NSError *signUpError = [[ NSError alloc] init ];
     

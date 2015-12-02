@@ -10,6 +10,7 @@
 #import "VideoDataController.h"
 #import "User.h"
 #import "SignInViewController.h"
+#import "ServerData.h"
 
 @interface LogoutViewController ()
 
@@ -39,13 +40,12 @@
 
 - (IBAction)logoutUser:(id)sender {
     
-    NSString *requestURL = [ [ VideoDataController serverURL] stringByAppendingString:[ NSString stringWithFormat:@"user/logout/%@/", [ User getCurrentActiveUser ].userId ]  ];
+    NSURL *requestURL = [ NSURL URLWithString:[ NSString stringWithFormat:@"user/logout/%@/", [ User getCurrentActiveUser ].userId ]
+                                relativeToURL:[ ServerData kBaseURL ] ];
     
-    NSMutableURLRequest *request =
-    [NSMutableURLRequest requestWithURL:[NSURL URLWithString: requestURL ]
-                            cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                        timeoutInterval: 10
-     ];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL
+                                                           cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                       timeoutInterval: 10 ];
     
     [request setHTTPMethod: @"PUT"];
     

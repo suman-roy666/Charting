@@ -69,7 +69,7 @@ static int pageNo = 1;
     NSInteger currentOffset = scrollView.contentOffset.y;
     NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
     
-    if ((maximumOffset - currentOffset <= -40) &&( pageNo <=5 ) ) {
+    if ((maximumOffset - currentOffset <= -60) &&( pageNo <=5 ) ) {
         [ self.videoList addObjectsFromArray: [ VideoDataController getChannelDetailsFor:@"popular" page:pageNo] ];
         pageNo++;
         [ self.tableView reloadData ];

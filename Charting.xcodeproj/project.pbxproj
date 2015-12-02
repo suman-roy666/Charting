@@ -23,6 +23,7 @@
 		117DBEC91C0DDD9D00E4AEF7 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBEC81C0DDD9D00E4AEF7 /* Video.m */; };
 		117DBED01C0DE2F300E4AEF7 /* VideoDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBECF1C0DE2F300E4AEF7 /* VideoDataController.m */; };
 		117DBED21C0EBE8300E4AEF7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 117DBED11C0EBE8300E4AEF7 /* bg.png */; };
+		117DBED51C0EFD4600E4AEF7 /* ServerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBED41C0EFD4600E4AEF7 /* ServerData.m */; };
 		1183885F1C0C0B74007BD518 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1183885E1C0C0B74007BD518 /* User.m */; };
 		118388621C0C1DDB007BD518 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118388611C0C1DDB007BD518 /* SignUpViewController.m */; };
 		11FED8EB1C07101C00DF9625 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FED8EA1C07101C00DF9625 /* LogoutViewController.m */; };
@@ -71,6 +72,8 @@
 		117DBECE1C0DE2F300E4AEF7 /* VideoDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDataController.h; sourceTree = "<group>"; };
 		117DBECF1C0DE2F300E4AEF7 /* VideoDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDataController.m; sourceTree = "<group>"; };
 		117DBED11C0EBE8300E4AEF7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		117DBED31C0EFD4600E4AEF7 /* ServerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerData.h; sourceTree = "<group>"; };
+		117DBED41C0EFD4600E4AEF7 /* ServerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerData.m; sourceTree = "<group>"; };
 		1183885D1C0C0B74007BD518 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		1183885E1C0C0B74007BD518 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		118388601C0C1DDB007BD518 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				116A08BE1C05933800AA46D8 /* AppDelegate.m */,
 				116A08C61C05933800AA46D8 /* Images.xcassets */,
 				116A08B91C05933800AA46D8 /* Supporting Files */,
+				117DBED31C0EFD4600E4AEF7 /* ServerData.h */,
+				117DBED41C0EFD4600E4AEF7 /* ServerData.m */,
 			);
 			path = Charting;
 			sourceTree = "<group>";
@@ -351,6 +356,7 @@
 				116A08E11C0599BC00AA46D8 /* PageContentViewController.m in Sources */,
 				117DBEC31C0DD52C00E4AEF7 /* PopularChannelViewController.m in Sources */,
 				11FED8F11C0735EC00DF9625 /* VideoInfoViewCell.m in Sources */,
+				117DBED51C0EFD4600E4AEF7 /* ServerData.m in Sources */,
 				118388621C0C1DDB007BD518 /* SignUpViewController.m in Sources */,
 				117DBEC01C0DC10400E4AEF7 /* CAPSPageMenu.m in Sources */,
 				117DBEBB1C0DA73600E4AEF7 /* ChannelViewController.m in Sources */,

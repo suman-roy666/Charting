@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SignInViewController.h"
+#import "ServerData.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
@@ -28,7 +30,7 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    SignInViewController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    UINavigationController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
     
     self.window.rootViewController = rootController;
     [self.window makeKeyAndVisible];

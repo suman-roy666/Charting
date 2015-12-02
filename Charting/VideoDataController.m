@@ -8,17 +8,19 @@
 
 #import "VideoDataController.h"
 #import "Video.h"
+#import "ServerData.h"
 #import "User.h"
 
 @implementation VideoDataController
 
+NSString *const kChannelDiscoveryURLString = @"discover/discovery/{channel}/{page}/{size}/{userID}/";
+
 +(NSMutableArray*)getChannelDetailsFor: (NSString*)channel page:(int) pageNo {
     
     
-    NSString *discoveryURL = [[ VideoDataController serverURL] stringByAppendingString:
-                              [ NSString stringWithFormat: @"discovery/discovery/%@/%d/%d/%@/",channel,pageNo,10, [ User getCurrentActiveUser].userId ]];
+    NSURL *discoveryURL = [ NSURL URLWithString:[ NSString stringWithFormat: @"discovery/discovery/%@/%d/%d/%@/",channel,pageNo,10, [ User getCurrentActiveUser].userId ] relativeToURL:[ ServerData kBaseURL ]];
     
-    NSMutableURLRequest *request = [ NSMutableURLRequest requestWithURL:[NSURL URLWithString: discoveryURL ]
+    NSMutableURLRequest *request = [ NSMutableURLRequest requestWithURL:discoveryURL
                             cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                         timeoutInterval: 10 ];
     
@@ -51,11 +53,6 @@
 
     
     return videoArray;
-}
-
-+(NSString*)serverURL{
-    
-    return @"http://ec2-52-27-8-48.us-west-2.compute.amazonaws.com:8080/myscout/";
 }
 
 @end

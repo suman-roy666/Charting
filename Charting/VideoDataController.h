@@ -10,6 +10,6 @@
 
 @interface VideoDataController : NSObject
 
-+(NSString*)serverURL;
 +(NSMutableArray*)getChannelDetailsFor: (NSString*)channel page:(int) pageNo;
+
 @end
