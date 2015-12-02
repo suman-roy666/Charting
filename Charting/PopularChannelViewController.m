@@ -7,12 +7,14 @@
 //
 
 #import "PopularChannelViewController.h"
+#import "VideoDataController.h"
 #import "Video.h"
 #import "VideoInfoViewCell.h"
 
 @implementation PopularChannelViewController
 
 static NSString *videoInfoViewCellIdentifier = @"VideoInfoViewCell";
+static int pageNo = 1;
 
 -(void)viewDidLoad{
     
@@ -61,6 +63,18 @@ static NSString *videoInfoViewCellIdentifier = @"VideoInfoViewCell";
     
     return cell.frame.size.height;
     
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    
+    if ((maximumOffset - currentOffset <= -40) &&( pageNo <=5 ) ) {
+        [ self.videoList addObjectsFromArray: [ VideoDataController getChannelDetailsFor:@"popular" page:pageNo] ];
+        pageNo++;
+        [ self.tableView reloadData ];
+        
+    }
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "LogoutViewController.h"
+#import "VideoDataController.h"
+#import "User.h"
 #import "SignInViewController.h"
 
 @interface LogoutViewController ()
@@ -26,19 +28,51 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)logoutUser:(id)sender {
     
-    SignInViewController *logOutResultViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
+    NSString *requestURL = [ [ VideoDataController serverURL] stringByAppendingString:[ NSString stringWithFormat:@"user/logout/%@/", [ User getCurrentActiveUser ].userId ]  ];
     
-    [ self presentViewController:logOutResultViewController animated:YES completion:nil ];
+    NSMutableURLRequest *request =
+    [NSMutableURLRequest requestWithURL:[NSURL URLWithString: requestURL ]
+                            cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                        timeoutInterval: 10
+     ];
+    
+    [request setHTTPMethod: @"PUT"];
+    
+    NSError *requestError = nil;
+    NSURLResponse *urlResponse = nil;
+    
+    
+    NSDictionary *responseArray = [NSJSONSerialization JSONObjectWithData:[NSURLConnection sendSynchronousRequest:request
+                                                                                                returningResponse:&urlResponse error:&requestError]
+                                                                  options:kNilOptions error:&requestError ];
+    
+    NSNumber *status = [ responseArray objectForKey:@"Success"];
+    
+    if (status!=nil) {
+        SignInViewController *logOutResultViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
+        
+        [ self presentViewController:logOutResultViewController animated:YES completion:nil ];
+        
+    } else {
+        
+        UIAlertView *login = [[ UIAlertView alloc] initWithTitle:@"Logout Failed"
+                                                         message:[ responseArray valueForKey:@"CustomError" ]
+                                                        delegate:self
+                                               cancelButtonTitle:@"Try Again"
+                                               otherButtonTitles: nil ];
+        
+        [ login show ];
+    }
 }
 @end
