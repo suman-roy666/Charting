@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *videoCommentCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *videoViewCountLabel;
 @property (weak, nonatomic) IBOutlet UIView *userNameView;
+@property (weak, nonatomic) IBOutlet UIImageView *videoThumbnail;
+
 
 
 @end

@@ -10,6 +10,7 @@
 #import "ChannelDataController.h"
 #import "Video.h"
 #import "VideoInfoViewCell.h"
+#import "WebImage.h"
 
 @implementation PopularChannelViewController
 
@@ -53,6 +54,9 @@ static int pageNo = 1;
     cell.videoLikeCountLabel.text = [ NSString stringWithFormat:@"%@", cellVideo.likeCount ];
     cell.videoCommentCountLabel.text = [ NSString stringWithFormat:@"%@", cellVideo.commentCount ];
     cell.videoViewCountLabel.text = [ NSString stringWithFormat:@"%@", cellVideo.viewCount ];
+    
+    [ cell.videoThumbnail sd_setImageWithURL:[ NSURL URLWithString: cellVideo.videoImageURL ]
+                            placeholderImage:[ UIImage imageNamed: @"bg.png" ]];
     
     return cell;
 }

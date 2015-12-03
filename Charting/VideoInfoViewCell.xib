@@ -330,10 +330,12 @@
             </tableViewCellContentView>
             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
+                <outlet property="userNameView" destination="pB5-zN-BPz" id="nIJ-EP-8c5"/>
                 <outlet property="videoCommentCountLabel" destination="4Eo-86-HVH" id="24b-N1-2AU"/>
                 <outlet property="videoDurationLabel" destination="br9-JX-v1O" id="goz-eM-Lfp"/>
                 <outlet property="videoLikeCountLabel" destination="f8S-bn-IxZ" id="sf2-Lc-mdR"/>
                 <outlet property="videoNameLabel" destination="eIw-GZ-sJ4" id="oSO-pu-QqL"/>
+                <outlet property="videoThumbnail" destination="3HZ-Rl-KO5" id="imK-ec-gTQ"/>
                 <outlet property="videoUserNameLabel" destination="5ru-J2-9Tv" id="SoW-8Z-Ghj"/>
                 <outlet property="videoViewCountLabel" destination="Myk-IU-Wwb" id="oLD-05-87x"/>
             </connections>
