@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "UserDataController.h"
 #import "User.h"
 
 @interface SignUpViewController ()
@@ -35,92 +36,22 @@ static NSString *userSignUpURL = @"user/createUser";
 
 - (IBAction)userSignUp:(id)sender {
     
-    NSString *newUserData = [ NSString stringWithFormat: @"{\"name\":\"%@\","
-    "\"password\":\"%@\","
-    "\"emailId\":\"%@\","
-    "\"instagramId\":\"\","
-    "\"deviceId\":\"DIV0005\","
-    "\"description\":\"\","
-    "\"websiteUrl\":\"\","
-    "\"facebookUrl\":\"\","
-    "\"twitterUrl\":\"\","
-    "\"instagramUrl\":\"\""
-    ",\"photoUrl\" :\"\","
-    "\"deviceType\":0,"
-    "\"city\":\"\","
-    "\"state\":\"\","
-    "\"country\":\"\","
-    "\"role\":3}", self.userNameTextField.text, self.passwordTextField.text, self.emailTextField.text ];
+    BOOL userSignUpStatus = [ UserDataController createNewUser:self.userNameTextField.text
+                              password:self.passwordTextField.text
+                               emailId:self.emailTextField.text ];
     
-    NSData *postData = [newUserData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[newUserData length]];
-
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
-                                    initWithURL:[NSURL URLWithString:[serverAddress stringByAppendingString:userSignUpURL]]];
-    
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [ request setHTTPBody:postData ];
-    
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    [ self.signUpActivityIndicator startAnimating ];
-    
-    [ self.view setAlpha:0.5 ];
-    
-    
-    if(conn) {
-        NSLog(@"Connection Successful");
-    } else {
-        NSLog(@"Connection could not be made");
-    }
-
-
-}
-
-#pragma mark NSURLConnection delegates
-// This method is used to receive the data which we get using post method.
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData*)data{
-    
-    signUpResponseData = [[ NSData alloc] initWithData:data ];
-    
-}
-
-// This method receives the error report in case of connection is not made to server.
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error{
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                        message:@"No Network Connection"
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK",nil];
-    [alertView show];
-    
-}
-
-// This method is used to process the data after connection has made successfully.
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    
-    [ self.view setAlpha:1.0 ];
-    [ self.signUpActivityIndicator stopAnimating ];
-    
-    NSError *signUpError = [[ NSError alloc] init ];
-    
-    NSString *signUpResponseString = [[NSString alloc] initWithData: signUpResponseData encoding:NSUTF8StringEncoding];
-    NSLog(@"Response Json : %@", signUpResponseString);
-    
-    NSDictionary *signUpResponse = [ NSJSONSerialization JSONObjectWithData:signUpResponseData options:kNilOptions error:&signUpError];
-    
-    if( [ signUpResponse objectForKey:@"EmailStatus"] != nil ){
-        
-        [[ User getCurrentActiveUser ] setUserId:[ signUpResponse valueForKey:@"id" ]];
+    if (userSignUpStatus) {
         
         UITabBarController *mainTabBar = [ self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         
         [ self presentViewController:mainTabBar animated:YES completion:nil ];
         
     } else {
+        
+        [ self.userNameTextField setText:@"" ];
+        [ self.passwordTextField setText:@"" ];
+        [ self.emailTextField setText:@"" ];
+        [ self.confirmPasswordTextField setText:@"" ];
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert"
                                                             message:@"Email already exists"
@@ -130,7 +61,8 @@ static NSString *userSignUpURL = @"user/createUser";
         [alertView show];
         
     }
-    
+
+
 }
 
 @end

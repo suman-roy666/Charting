@@ -69,8 +69,18 @@ NSString *const kUserLogoutURLString = @"user/logout/%@";
     
     NSString *newUserData = [ NSString stringWithFormat:kUserSignUpDataFormat, userName, password, emailId ];
     
-    NSData *userPostData = [newUserData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[newUserData length]];
+    NSURLResponse *signUpURLResponse;
+    
+    NSDictionary *signUpResponse = [[ ServerConnectionManager getServerConnectionManagerInstance ] performPOSTRequestTo:kUserSignUpURLString
+                                                                                                               POSTData:newUserData
+                                                                                                               response:&signUpURLResponse ];
+    
+    if ( [ signUpResponse objectForKey:@"EmailStatus" ] ) {
+        
+        [[ User getCurrentActiveUser ] setUserId: [ signUpResponse valueForKey:@"id" ] ];
+        
+        return YES;
+    }
     
     return NO;
 }

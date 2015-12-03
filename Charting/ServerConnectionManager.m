@@ -40,7 +40,9 @@ NSString *const kBaseURLString = @"http://ec2-52-27-8-48.us-west-2.compute.amazo
     
     NSURL *GETRequestURL = [ NSURL URLWithString:APIURL relativeToURL:_kBaseURL ];
     
-    NSMutableURLRequest *GETRequest = [NSMutableURLRequest requestWithURL:GETRequestURL cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData timeoutInterval:10 ];
+    NSMutableURLRequest *GETRequest = [NSMutableURLRequest requestWithURL:GETRequestURL
+                                                              cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                          timeoutInterval:10 ];
     
     [GETRequest setHTTPMethod: @"GET"];
     
@@ -57,8 +59,8 @@ NSString *const kBaseURLString = @"http://ec2-52-27-8-48.us-west-2.compute.amazo
     }
     
     NSDictionary *urlResponseDictionary = [NSJSONSerialization JSONObjectWithData: urlResponseData
-                                                                  options: NSJSONReadingAllowFragments
-                                                                    error: &requestError ];
+                                                                          options: NSJSONReadingAllowFragments
+                                                                            error: &requestError ];
     if (requestError == nil ) {
         
         return urlResponseDictionary;
@@ -67,9 +69,44 @@ NSString *const kBaseURLString = @"http://ec2-52-27-8-48.us-west-2.compute.amazo
     return nil;
 }
 
-- (NSDictionary*)performPOSTRequestFor:(NSString *)APIURL response:(NSURLResponse *__autoreleasing *)urlResponse{
+- (NSDictionary*)performPOSTRequestTo:(NSString *)APIURL POSTData: (NSString*)postDataString response:(NSURLResponse *__autoreleasing *)urlResponse{
+    
+    NSData *postData = [ postDataString dataUsingEncoding:NSASCIIStringEncoding
+                                     allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%lu",(unsigned long)[postDataString length]];
+    
+    NSURL *POSTRequestURL = [ NSURL URLWithString:APIURL relativeToURL:_kBaseURL ];
+    
+    NSMutableURLRequest *POSTRequest = [ NSMutableURLRequest requestWithURL:POSTRequestURL
+                                                                cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                            timeoutInterval:30 ];
+    
+    [ POSTRequest setHTTPMethod:@"POST" ];
+    [ POSTRequest setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [ POSTRequest setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    [ POSTRequest setHTTPBody:postData ];
+    
+    NSError *requestError = nil;
+    
+    NSData *urlResponseData = [ NSURLConnection sendSynchronousRequest:POSTRequest
+                                                     returningResponse:urlResponse
+                                                                 error:&requestError ];
+    
+    if (urlResponseData == nil ) {
+        
+        return nil;
+    }
     
     
+    NSDictionary *responseDictionary = [ NSJSONSerialization JSONObjectWithData:urlResponseData
+                                                                        options:kNilOptions
+                                                                          error:&requestError ];
+    
+    if (requestError == nil ) {
+        
+        return responseDictionary;
+    }
     
     return nil;
 }

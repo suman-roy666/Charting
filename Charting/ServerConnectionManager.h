@@ -14,5 +14,6 @@
 
 +(ServerConnectionManager*)getServerConnectionManagerInstance;
 - (NSDictionary*)performGETRequestFor: (NSString*)APIURL response: (NSURLResponse **)urlResponse;
+- (NSDictionary*)performPOSTRequestTo:(NSString *)APIURL POSTData: (NSString*)postDataString response:(NSURLResponse *__autoreleasing *)urlResponse;
 
 @end

@@ -65,6 +65,7 @@ NSString *const kChannelDiscoveryURLString = @"discovery/discovery/%@/%@/%d/%@/"
         
         videoInfo.videoName     = [ video valueForKey:@"videoName" ];
         videoInfo.userName      = [ video valueForKey:@"userName" ];
+        videoInfo.videoImageURL = [ video valueForKey:@"thumbNailUrl" ];
         videoInfo.duration      = [ video valueForKey:@"videoDuration" ];
         videoInfo.likeCount     = [ video valueForKey:@"noOfLiked" ];
         videoInfo.commentCount  = [ video valueForKey:@"noOfComments" ];

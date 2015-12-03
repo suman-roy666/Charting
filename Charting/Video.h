@@ -12,6 +12,7 @@
 
 @property (strong,nonatomic) NSString *videoName;
 @property (strong,nonatomic) NSString *userName;
+@property (strong,nonatomic) NSString *videoImageURL;
 @property (strong,nonatomic) NSNumber *duration;
 @property (strong,nonatomic) NSNumber *likeCount;
 @property (strong,nonatomic) NSNumber *viewCount;
