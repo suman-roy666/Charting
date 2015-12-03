@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTextField;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *signUpActivityIndicator;
+@property (weak, nonatomic) IBOutlet UIView *signUpWaitingView;
 
 - (IBAction)userSignUp:(id)sender;
 

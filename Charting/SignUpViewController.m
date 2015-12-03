@@ -16,11 +16,8 @@
 
 @implementation SignUpViewController{
     
-    NSData *signUpResponseData;
+    NSOperationQueue *signUpQueue;
 }
-
-static NSString *serverAddress = @"http://ec2-52-27-8-48.us-west-2.compute.amazonaws.com:8080/myscout/";
-static NSString *userSignUpURL = @"user/createUser";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,33 +33,41 @@ static NSString *userSignUpURL = @"user/createUser";
 
 - (IBAction)userSignUp:(id)sender {
     
-    BOOL userSignUpStatus = [ UserDataController createNewUser:self.userNameTextField.text
-                              password:self.passwordTextField.text
-                               emailId:self.emailTextField.text ];
+    [ self.signUpActivityIndicator startAnimating ];
+    [ self.signUpWaitingView setHidden:NO ];
     
-    if (userSignUpStatus) {
+    [ [ NSOperationQueue mainQueue ] addOperationWithBlock:^{  BOOL userSignUpStatus = [ UserDataController createNewUser:self.userNameTextField.text
+                                                                                                                 password:self.passwordTextField.text
+                                                                                                                  emailId:self.emailTextField.text ];
+        [ self.signUpWaitingView setHidden:YES ];
         
-        UITabBarController *mainTabBar = [ self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        [ self.signUpActivityIndicator stopAnimating ];
         
-        [ self presentViewController:mainTabBar animated:YES completion:nil ];
-        
-    } else {
-        
-        [ self.userNameTextField setText:@"" ];
-        [ self.passwordTextField setText:@"" ];
-        [ self.emailTextField setText:@"" ];
-        [ self.confirmPasswordTextField setText:@"" ];
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                            message:@"Email already exists"
-                                                           delegate:self
-                                                  cancelButtonTitle:nil
-                                                  otherButtonTitles:@"OK",nil];
-        [alertView show];
-        
-    }
-
-
+        if (userSignUpStatus) {
+            
+            UITabBarController *mainTabBar = [ self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+            
+            [ self presentViewController:mainTabBar animated:YES completion:nil ];
+            
+        } else {
+            
+            [ self.userNameTextField setText:@"" ];
+            [ self.passwordTextField setText:@"" ];
+            [ self.emailTextField setText:@"" ];
+            [ self.confirmPasswordTextField setText:@"" ];
+            
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                                message:@"Email already exists"
+                                                               delegate:self
+                                                      cancelButtonTitle:nil
+                                                      otherButtonTitles:@"OK",nil];
+            [alertView show];
+            
+        }
+    }];
+    
+    
+    
 }
 
 @end

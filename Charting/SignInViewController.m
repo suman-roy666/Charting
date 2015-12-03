@@ -29,53 +29,55 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 
 - (IBAction)userSignIn:(id)sender {
     
     [ self.loginIndicator startAnimating ];
-    [ self.view setUserInteractionEnabled:NO ];
-    [ self.view setAlpha:0.25 ];
-    [ self.loginIndicator setAlpha:1.0];
+    [ self.loginWaitingView setHidden:NO ];
     
     NSString *userName = @"suman.roy@sourcebits.com";//self.userNameTextField.text;
     NSString *userPass = @"admin1234";//self.passwordTextField.text;
-
-    BOOL signIn = [ UserDataController loginUser:userName password:userPass ];
     
-    if (signIn) {
+    [ [ NSOperationQueue mainQueue ] addOperationWithBlock:^{
         
-        
-        UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-        
-        [ self presentViewController:main animated:YES completion:nil];
-        
-    } else {
-        
+        BOOL signIn = [ UserDataController loginUser:userName password:userPass ];
         
         [ self.loginIndicator stopAnimating ];
-        [ self.view setUserInteractionEnabled:YES ];
-        [ self.view setAlpha:1 ];
-        self.userNameTextField.text = @"";
-        self.passwordTextField.text = @"";
+        [ self.loginWaitingView setHidden:YES ];
         
-        UIAlertView *login = [[ UIAlertView alloc] initWithTitle:@"Login Failed"
-                                                         message:@"Incorrect Credentials"
-                                                        delegate:self
-                                               cancelButtonTitle:@"Try Again"
-                                               otherButtonTitles: nil ];
-        
-        [ login show ];
-    }
-
+        if (signIn) {
+            
+            
+            UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+            
+            [ self presentViewController:main animated:YES completion:nil];
+            
+        } else {
+            
+            
+            
+            self.userNameTextField.text = @"";
+            self.passwordTextField.text = @"";
+            
+            UIAlertView *login = [[ UIAlertView alloc] initWithTitle:@"Login Failed"
+                                                             message:@"Incorrect Credentials"
+                                                            delegate:self
+                                                   cancelButtonTitle:@"Try Again"
+                                                   otherButtonTitles: nil ];
+            
+            [ login show ];
+        }
+    }];
+    
 }
 
 - (IBAction)userSignUp:(id)sender {
