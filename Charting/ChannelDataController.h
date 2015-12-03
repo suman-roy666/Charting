@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VideoDataController : NSObject
+@interface ChannelDataController : NSObject
 
 +(NSMutableArray*)getChannelDetailsFor: (NSString*)channel page:(int) pageNo;
 

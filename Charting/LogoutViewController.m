@@ -7,10 +7,10 @@
 //
 
 #import "LogoutViewController.h"
-#import "VideoDataController.h"
+#import "ChannelDataController.h"
 #import "User.h"
 #import "SignInViewController.h"
-#import "ServerData.h"
+#import "ServerConnectionManager.h"
 
 @interface LogoutViewController ()
 
@@ -41,7 +41,7 @@
 - (IBAction)logoutUser:(id)sender {
     
     NSURL *requestURL = [ NSURL URLWithString:[ NSString stringWithFormat:@"user/logout/%@/", [ User getCurrentActiveUser ].userId ]
-                                relativeToURL:[ ServerData kBaseURL ] ];
+                                relativeToURL:[ ServerConnectionManager kBaseURL ] ];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL
                                                            cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData

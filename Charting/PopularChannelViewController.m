@@ -7,7 +7,7 @@
 //
 
 #import "PopularChannelViewController.h"
-#import "VideoDataController.h"
+#import "ChannelDataController.h"
 #import "Video.h"
 #import "VideoInfoViewCell.h"
 
@@ -20,11 +20,11 @@ static int pageNo = 1;
     
     
     [ self.tableView registerNib:[ UINib nibWithNibName:videoInfoViewCellIdentifier
-                                                      bundle:nil]
-               forCellReuseIdentifier:videoInfoViewCellIdentifier ];
+                                                 bundle:nil]
+          forCellReuseIdentifier:videoInfoViewCellIdentifier ];
     
     
-
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -33,7 +33,7 @@ static int pageNo = 1;
     [ self.tableView setFrame: CGRectMake(self.tableView.frame.origin.x,
                                           self.tableView.frame.origin.y,
                                           self.tableView.frame.size.width,
-                                          (self.tableView.frame.size.height - self.bottomMargin*2))];
+                                         (self.tableView.frame.size.height - self.bottomMargin*2))];
     
 }
 
@@ -70,7 +70,7 @@ static int pageNo = 1;
     NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
     
     if ((maximumOffset - currentOffset <= -60) &&( pageNo <=5 ) ) {
-        [ self.videoList addObjectsFromArray: [ VideoDataController getChannelDetailsFor:@"popular" page:pageNo] ];
+        [ self.videoList addObjectsFromArray: [ ChannelDataController getChannelDetailsFor:@"popular" page:pageNo] ];
         pageNo++;
         [ self.tableView reloadData ];
         

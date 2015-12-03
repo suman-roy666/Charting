@@ -193,13 +193,14 @@
                                     <action selector="userSignUp:" destination="CtW-SX-UqC" eventType="touchUpInside" id="hOI-Mh-JrS"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="giN-Ke-YeL">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="giN-Ke-YeL">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="177" y="370" width="37" height="37"/>
+                                    <rect key="frame" x="177" y="370" width="20" height="20"/>
                                 </variation>
                             </activityIndicatorView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Py9-tu-z0c">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Py9-tu-z0c">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -235,6 +236,13 @@
                                     <rect key="frame" x="70" y="262" width="76" height="21"/>
                                 </variation>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KJ-k4-TEE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.80021280317164178" green="0.80021280317164178" blue="0.80021280317164178" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="75" y="207" width="250" height="1"/>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
@@ -246,6 +254,7 @@
                                 <exclude reference="DcD-3O-w9W"/>
                                 <exclude reference="6lB-dF-m8y"/>
                                 <exclude reference="j7k-ve-Stt"/>
+                                <exclude reference="6KJ-k4-TEE"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -257,6 +266,7 @@
                                 <include reference="DcD-3O-w9W"/>
                                 <include reference="6lB-dF-m8y"/>
                                 <include reference="j7k-ve-Stt"/>
+                                <include reference="6KJ-k4-TEE"/>
                             </mask>
                         </variation>
                     </view>

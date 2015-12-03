@@ -5,10 +5,10 @@
 //  Created by Suman Roy on 25/11/15.
 //  Copyright (c) 2015 sourcebits. All rights reserved.
 //
-
 #import "SignInViewController.h"
 #import "ChannelViewController.h"
 #import "SignUpViewController.h"
+#import "UserDataController.h"
 #import "User.h"
 
 @interface SignInViewController ()
@@ -16,9 +16,6 @@
 @end
 
 @implementation SignInViewController
-
-static NSString *serverAddress = @"http://ec2-52-27-8-48.us-west-2.compute.amazonaws.com:8080/myscout/";
-static NSString *userLoginURL = @"user/login/%@/%@/DIV005/0/";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,39 +41,18 @@ static NSString *userLoginURL = @"user/login/%@/%@/DIV005/0/";
 
 - (IBAction)userSignIn:(id)sender {
     
-    [ self.loginIndicator setHidden:NO ];
     [ self.loginIndicator startAnimating ];
+    [ self.view setUserInteractionEnabled:NO ];
+    [ self.view setAlpha:0.25 ];
+    [ self.loginIndicator setAlpha:1.0];
     
     NSString *userName = @"suman.roy@sourcebits.com";//self.userNameTextField.text;
     NSString *userPass = @"admin1234";//self.passwordTextField.text;
+
+    BOOL signIn = [ UserDataController loginUser:userName password:userPass ];
     
-    
-    
-    NSMutableURLRequest *request =
-    [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[serverAddress stringByAppendingString:[ NSString stringWithFormat:userLoginURL, userName, userPass ]]]
-                            cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                        timeoutInterval: 10
-     ];
-    
-    [request setHTTPMethod: @"GET"];
-    
-    NSError *requestError = nil;
-    NSURLResponse *urlResponse = nil;
-    
-    
-    NSDictionary *responseArray = [NSJSONSerialization JSONObjectWithData:[NSURLConnection sendSynchronousRequest:request
-                                                                                                returningResponse:&urlResponse error:&requestError]
-                                                                  options:kNilOptions error:&requestError ];
-    
-    NSNumber *status = [ responseArray valueForKey:@"status"];
-    NSString *uId = [ responseArray valueForKey:@"id" ];
-    
-    [ self.loginIndicator stopAnimating];
-    [ self.loginIndicator setHidden:YES ];
-    
-    if ([status isEqualToNumber:[ NSNumber numberWithInt:1] ]) {
+    if (signIn) {
         
-        [[ User getCurrentActiveUser ] setUserId:uId ];
         
         UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         
@@ -84,6 +60,10 @@ static NSString *userLoginURL = @"user/login/%@/%@/DIV005/0/";
         
     } else {
         
+        
+        [ self.loginIndicator stopAnimating ];
+        [ self.view setUserInteractionEnabled:YES ];
+        [ self.view setAlpha:1 ];
         self.userNameTextField.text = @"";
         self.passwordTextField.text = @"";
         
@@ -95,7 +75,7 @@ static NSString *userLoginURL = @"user/login/%@/%@/DIV005/0/";
         
         [ login show ];
     }
-    
+
 }
 
 - (IBAction)userSignUp:(id)sender {

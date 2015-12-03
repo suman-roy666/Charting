@@ -21,9 +21,10 @@
 		117DBEC31C0DD52C00E4AEF7 /* PopularChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBEC21C0DD52C00E4AEF7 /* PopularChannelViewController.m */; };
 		117DBEC61C0DD54200E4AEF7 /* RecentChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBEC51C0DD54200E4AEF7 /* RecentChannelViewController.m */; };
 		117DBEC91C0DDD9D00E4AEF7 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBEC81C0DDD9D00E4AEF7 /* Video.m */; };
-		117DBED01C0DE2F300E4AEF7 /* VideoDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBECF1C0DE2F300E4AEF7 /* VideoDataController.m */; };
+		117DBED01C0DE2F300E4AEF7 /* ChannelDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBECF1C0DE2F300E4AEF7 /* ChannelDataController.m */; };
 		117DBED21C0EBE8300E4AEF7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 117DBED11C0EBE8300E4AEF7 /* bg.png */; };
-		117DBED51C0EFD4600E4AEF7 /* ServerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBED41C0EFD4600E4AEF7 /* ServerData.m */; };
+		117DBED51C0EFD4600E4AEF7 /* ServerConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBED41C0EFD4600E4AEF7 /* ServerConnectionManager.m */; };
+		117DBED81C10208200E4AEF7 /* UserDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBED71C10208200E4AEF7 /* UserDataController.m */; };
 		1183885F1C0C0B74007BD518 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 1183885E1C0C0B74007BD518 /* User.m */; };
 		118388621C0C1DDB007BD518 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 118388611C0C1DDB007BD518 /* SignUpViewController.m */; };
 		11FED8EB1C07101C00DF9625 /* LogoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11FED8EA1C07101C00DF9625 /* LogoutViewController.m */; };
@@ -69,11 +70,13 @@
 		117DBEC51C0DD54200E4AEF7 /* RecentChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentChannelViewController.m; sourceTree = "<group>"; };
 		117DBEC71C0DDD9D00E4AEF7 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		117DBEC81C0DDD9D00E4AEF7 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
-		117DBECE1C0DE2F300E4AEF7 /* VideoDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDataController.h; sourceTree = "<group>"; };
-		117DBECF1C0DE2F300E4AEF7 /* VideoDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDataController.m; sourceTree = "<group>"; };
+		117DBECE1C0DE2F300E4AEF7 /* ChannelDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelDataController.h; sourceTree = "<group>"; };
+		117DBECF1C0DE2F300E4AEF7 /* ChannelDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelDataController.m; sourceTree = "<group>"; };
 		117DBED11C0EBE8300E4AEF7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
-		117DBED31C0EFD4600E4AEF7 /* ServerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerData.h; sourceTree = "<group>"; };
-		117DBED41C0EFD4600E4AEF7 /* ServerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerData.m; sourceTree = "<group>"; };
+		117DBED31C0EFD4600E4AEF7 /* ServerConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnectionManager.h; sourceTree = "<group>"; };
+		117DBED41C0EFD4600E4AEF7 /* ServerConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConnectionManager.m; sourceTree = "<group>"; };
+		117DBED61C10208200E4AEF7 /* UserDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataController.h; sourceTree = "<group>"; };
+		117DBED71C10208200E4AEF7 /* UserDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataController.m; sourceTree = "<group>"; };
 		1183885D1C0C0B74007BD518 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		1183885E1C0C0B74007BD518 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		118388601C0C1DDB007BD518 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -133,8 +136,8 @@
 				116A08BE1C05933800AA46D8 /* AppDelegate.m */,
 				116A08C61C05933800AA46D8 /* Images.xcassets */,
 				116A08B91C05933800AA46D8 /* Supporting Files */,
-				117DBED31C0EFD4600E4AEF7 /* ServerData.h */,
-				117DBED41C0EFD4600E4AEF7 /* ServerData.m */,
+				117DBED31C0EFD4600E4AEF7 /* ServerConnectionManager.h */,
+				117DBED41C0EFD4600E4AEF7 /* ServerConnectionManager.m */,
 			);
 			path = Charting;
 			sourceTree = "<group>";
@@ -205,8 +208,10 @@
 		117DBECD1C0DE2D500E4AEF7 /* Data Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				117DBECE1C0DE2F300E4AEF7 /* VideoDataController.h */,
-				117DBECF1C0DE2F300E4AEF7 /* VideoDataController.m */,
+				117DBECE1C0DE2F300E4AEF7 /* ChannelDataController.h */,
+				117DBECF1C0DE2F300E4AEF7 /* ChannelDataController.m */,
+				117DBED61C10208200E4AEF7 /* UserDataController.h */,
+				117DBED71C10208200E4AEF7 /* UserDataController.m */,
 			);
 			name = "Data Controllers";
 			sourceTree = "<group>";
@@ -348,15 +353,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117DBED81C10208200E4AEF7 /* UserDataController.m in Sources */,
 				112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */,
 				116A08C21C05933800AA46D8 /* ViewController.m in Sources */,
 				117DBEC61C0DD54200E4AEF7 /* RecentChannelViewController.m in Sources */,
 				1183885F1C0C0B74007BD518 /* User.m in Sources */,
-				117DBED01C0DE2F300E4AEF7 /* VideoDataController.m in Sources */,
+				117DBED01C0DE2F300E4AEF7 /* ChannelDataController.m in Sources */,
 				116A08E11C0599BC00AA46D8 /* PageContentViewController.m in Sources */,
 				117DBEC31C0DD52C00E4AEF7 /* PopularChannelViewController.m in Sources */,
 				11FED8F11C0735EC00DF9625 /* VideoInfoViewCell.m in Sources */,
-				117DBED51C0EFD4600E4AEF7 /* ServerData.m in Sources */,
+				117DBED51C0EFD4600E4AEF7 /* ServerConnectionManager.m in Sources */,
 				118388621C0C1DDB007BD518 /* SignUpViewController.m in Sources */,
 				117DBEC01C0DC10400E4AEF7 /* CAPSPageMenu.m in Sources */,
 				117DBEBB1C0DA73600E4AEF7 /* ChannelViewController.m in Sources */,

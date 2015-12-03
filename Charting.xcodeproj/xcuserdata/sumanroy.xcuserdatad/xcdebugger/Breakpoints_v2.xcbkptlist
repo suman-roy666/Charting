@@ -25,13 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Charting/SignInViewController.m"
-            timestampString = "470559100.551361"
+            filePath = "Charting/ChannelDataController.m"
+            timestampString = "470836348.156369"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-userSignIn:"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "+getChannelDetailsFor:page:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

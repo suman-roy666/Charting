@@ -8,7 +8,7 @@
 
 #import "ChannelViewController.h"
 #import "PopularChannelViewController.h"
-#import "VideoDataController.h"
+#import "ChannelDataController.h"
 
 @implementation ChannelViewController
 
@@ -26,7 +26,7 @@
     
     PopularChannelViewController *controller = [ self.storyboard instantiateViewControllerWithIdentifier:@"PopularTableViewController" ];
     controller.title = @"POPULAR";
-    controller.videoList = [ VideoDataController getChannelDetailsFor:@"popular" page:0 ];
+    controller.videoList = [ ChannelDataController getChannelDetailsFor:@"popular" page:0 ];
     controller.bottomMargin = self.tabBarController.tabBar.frame.size.height;
     [controllerArray addObject:controller];
     

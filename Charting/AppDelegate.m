@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SignInViewController.h"
-#import "ServerData.h"
+#import "ServerConnectionManager.h"
 
 @interface AppDelegate ()
 
