@@ -54,7 +54,7 @@
 
 - (IBAction)endTutorial:(id)sender {
     
-    SignInViewController *signInPage = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
+    SignInViewController *signInPage = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
     
     [ self presentViewController:signInPage animated:YES completion:nil ];
     

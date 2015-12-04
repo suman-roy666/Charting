@@ -30,7 +30,7 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    UINavigationController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
+    UINavigationController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"RootViewController"];
     
     self.window.rootViewController = rootController;
     [self.window makeKeyAndVisible];
