@@ -53,7 +53,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UJF-HL-A89">
+                    <view alpha="0.75" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UJF-HL-A89">
                         <rect key="frame" x="8" y="202" width="341" height="81"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="3:25" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br9-JX-v1O">
@@ -184,7 +184,7 @@
                                 </variation>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.27058823529411763" green="0.85098039215686272" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.16862745098039217" green="0.21176470588235294" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="4Eo-86-HVH" firstAttribute="firstBaseline" secondItem="1PE-vw-fFZ" secondAttribute="firstBaseline" id="2vL-3V-LsN"/>
                             <constraint firstItem="i3x-2h-Qys" firstAttribute="firstBaseline" secondItem="Myk-IU-Wwb" secondAttribute="firstBaseline" id="38G-O9-Rnb"/>

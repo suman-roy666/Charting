@@ -10,7 +10,6 @@
 
 @interface PopularChannelViewController : UIViewController < UITableViewDataSource, UITableViewDelegate >
 
-@property (strong,nonatomic) NSMutableArray *videoList;
 @property (nonatomic) CGFloat bottomMargin;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

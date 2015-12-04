@@ -11,6 +11,8 @@
 #import "ServerConnectionManager.h"
 #import "User.h"
 
+#define kPageLength
+
 @implementation ChannelDataController{
     
     NSString *discoveryURLString;
@@ -21,30 +23,41 @@
  discovery/{channel}/{page}/{size}/{userID}/
  */
 
-NSString *const kChannelDiscoveryURLString = @"discovery/discovery/%@/%@/%d/%@/";
+NSString *const kChannelDiscoveryURLString = @"discovery/discovery/%@/%@/%@/%@/";
+NSString *const pageLength = @"10";
+static int page = 0;
 
-- (instancetype)initWithChannel: (NSString*)channel pageSize: (int) pageSize{
+- (instancetype)initWithChannel: (NSString*)channel{
     
     self = [ super init ];
     
     if (self) {
         
-        discoveryURLString = [ NSString stringWithFormat:kChannelDiscoveryURLString, channel, @"%d", pageSize, [ User getCurrentActiveUser].userId  ];
+        discoveryURLString = [ NSString stringWithFormat:kChannelDiscoveryURLString, channel, @"%d", pageLength, [ User getCurrentActiveUser].userId  ];
     }
     
     return self;
 }
 
-+(NSMutableArray*)getChannelDetailsFor: (NSString*)channel page:(int) pageNo {
+-(NSArray*)retrieveChannelDataFromRoot: (BOOL)startFromRoot {
     
+    if ( startFromRoot ){
+        
+        page = 0;
+        
+    } else {
+        
+        ++page;
+    }
     
-    NSString *discoveryURL = [ NSString stringWithFormat: @"discovery/discovery/%@/%d/%d/%@/",channel,pageNo,10, [ User getCurrentActiveUser].userId ];
+    NSString *discoveryURL = [ NSString stringWithFormat: discoveryURLString, page ];
     
     
     NSURLResponse *discoveryResponse = nil;
     
     NSData *responseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performGETRequestFor:discoveryURL response:&discoveryResponse ];
     
+
     if ( responseData != nil ){
         
         NSError *responseError = nil;

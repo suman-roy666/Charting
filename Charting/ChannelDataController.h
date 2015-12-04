@@ -10,6 +10,8 @@
 
 @interface ChannelDataController : NSObject
 
-+(NSMutableArray*)getChannelDetailsFor: (NSString*)channel page:(int) pageNo;
+-(instancetype)initWithChannel: (NSString*)channel;
+
+-(NSArray*)retrieveChannelDataFromRoot: (BOOL)startFromRoot;
 
 @end

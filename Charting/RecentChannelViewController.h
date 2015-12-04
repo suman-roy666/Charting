@@ -10,4 +10,5 @@
 
 @interface RecentChannelViewController : UITableViewController
 
+@property (nonatomic) CGFloat bottomMargin;
 @end

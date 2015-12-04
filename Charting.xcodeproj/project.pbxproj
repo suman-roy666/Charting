@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1120FC601C115A2D0071F7F6 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1120FC5F1C115A2D0071F7F6 /* bg.png */; };
+		1120FC621C11B1250071F7F6 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1120FC611C11B1250071F7F6 /* button.png */; };
 		112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C13AE1C05C0A7007FDF2D /* SignInViewController.m */; };
 		116A08BC1C05933800AA46D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BB1C05933800AA46D8 /* main.m */; };
 		116A08BF1C05933800AA46D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BE1C05933800AA46D8 /* AppDelegate.m */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		1120FC5F1C115A2D0071F7F6 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		1120FC611C11B1250071F7F6 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		112C13AD1C05C0A7007FDF2D /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		112C13AE1C05C0A7007FDF2D /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		116A08B61C05933800AA46D8 /* Charting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charting.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -331,6 +333,7 @@
 		11FED8ED1C07138A00DF9625 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1120FC611C11B1250071F7F6 /* button.png */,
 				1120FC5F1C115A2D0071F7F6 /* bg.png */,
 				117DBEBE1C0DC10400E4AEF7 /* CAPSPageMenu.h */,
 				117DBEBF1C0DC10400E4AEF7 /* CAPSPageMenu.m */,
@@ -424,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1120FC601C115A2D0071F7F6 /* bg.png in Resources */,
+				1120FC621C11B1250071F7F6 /* button.png in Resources */,
 				11FED8F21C0735EC00DF9625 /* VideoInfoViewCell.xib in Resources */,
 				116A08C51C05933800AA46D8 /* Main.storyboard in Resources */,
 				116A08CA1C05933800AA46D8 /* LaunchScreen.xib in Resources */,

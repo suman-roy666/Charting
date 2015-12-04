@@ -8,11 +8,13 @@
 
 #import "ChannelViewController.h"
 #import "PopularChannelViewController.h"
+#import "RecentChannelViewController.h"
 #import "ChannelDataController.h"
 
 @implementation ChannelViewController
 
 -(void)viewDidLoad {
+    
     
     
     // Array to keep track of controllers in page menu
@@ -26,12 +28,12 @@
     
     PopularChannelViewController *controller = [ self.storyboard instantiateViewControllerWithIdentifier:@"PopularTableViewController" ];
     controller.title = @"POPULAR";
-    controller.videoList = [ ChannelDataController getChannelDetailsFor:@"popular" page:0 ];
     controller.bottomMargin = self.tabBarController.tabBar.frame.size.height;
     [controllerArray addObject:controller];
     
-    UIViewController *controller2 = [self.storyboard instantiateViewControllerWithIdentifier:@"RecentTableViewController"];
+    RecentChannelViewController *controller2 = [self.storyboard instantiateViewControllerWithIdentifier:@"RecentTableViewController"];
     controller2.title = @"RECENT";
+    controller2.bottomMargin = self.tabBarController.tabBar.frame.size.height;
     [controllerArray addObject:controller2];
     
     // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
@@ -39,19 +41,20 @@
     
     UIColor *bgColor = [ UIColor colorWithRed:( 28.0/255.0 ) green:(216.0/255.0 ) blue:1 alpha:1 ];
     
+    UIFont *menuLabelFont = [ UIFont fontWithName:@"Helvetica-Bold" size:20.0 ];
+    
     NSDictionary *parameters = @{CAPSPageMenuOptionMenuItemSeparatorWidth: @(4.3),
                                  CAPSPageMenuOptionUseMenuLikeSegmentedControl: @(YES),
                                  CAPSPageMenuOptionMenuHeight: @(70.0),
-                                 CAPSPageMenuOptionScrollMenuBackgroundColor: bgColor
+                                 CAPSPageMenuOptionScrollMenuBackgroundColor: bgColor,
+                                 CAPSPageMenuOptionMenuItemFont: menuLabelFont
                                  };
     
     // Initialize page menu with controller array, frame, and optional parameters
     
-    CGFloat top = self.topLayoutGuide.length;
-    
     _pageMenu = [[CAPSPageMenu alloc] initWithViewControllers:controllerArray
                                                         frame:CGRectMake(self.view.frame.origin.x,
-                                                                         self.view.frame.origin.y + top,
+                                                                         self.view.frame.origin.y,
                                                                          self.view.frame.size.width,
                                                                          self.view.frame.size.height)
                                                       options:parameters];
@@ -62,7 +65,8 @@
     // or use pageMenu controller in you view hierachy as desired
     [self.view addSubview:_pageMenu.view];
     
-    
+    self.tabBarController.tabBar.backgroundColor = bgColor;
+    self.tabBarController.tabBar.alpha = 1.0;
 }
 
 @end
