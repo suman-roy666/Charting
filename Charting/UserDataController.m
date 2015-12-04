@@ -17,7 +17,7 @@
  user/login/{emailId}/{password}/{deviceId}/{deviceType}/
  */
 
-NSString *const kUserLoginURLString= @"user/login/%@/%@/DIV0005/0/";
+NSString *const kUserLoginURLString= @"user/login/%@/%@/DIV005/0/";
 NSString *const kUserSignUpURLString= @"user/createUser";
 NSString *const kUserSignUpDataFormat = @"{\"name\"         :\"%@\","
                                         "\"password\"       :\"%@\","
@@ -41,7 +41,7 @@ NSString *const kUserSignUpDataFormat = @"{\"name\"         :\"%@\","
  /user/logout/{id}
  */
 
-NSString *const kUserLogoutURLString = @"user/logout/%@";
+NSString *const kUserLogoutURLString = @"user/logout/%@/";
 
 + (BOOL)loginUser:(NSString *)userEmail password:(NSString *)password{
     
@@ -49,10 +49,16 @@ NSString *const kUserLogoutURLString = @"user/logout/%@";
     
     NSURLResponse *serverResponse;
     
-    NSDictionary *loginResponse = [[ ServerConnectionManager getServerConnectionManagerInstance ] performGETRequestFor:loginURL
+    NSData *loginResponseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performGETRequestFor:loginURL
                                                                                                               response:&serverResponse ];
     
-    if (loginResponse != nil ) {
+    NSError *loginError = nil;
+    
+    NSDictionary *loginResponse = [ NSJSONSerialization JSONObjectWithData:loginResponseData
+                                                                   options:NSJSONReadingAllowFragments
+                                                                     error:&loginError ];
+    
+    if ( loginResponse != nil ) {
         
         User *currentUser = [ User getCurrentActiveUser];
         NSString *uId = [ loginResponse valueForKey:@"id" ];
@@ -71,13 +77,39 @@ NSString *const kUserLogoutURLString = @"user/logout/%@";
     
     NSURLResponse *signUpURLResponse;
     
-    NSDictionary *signUpResponse = [[ ServerConnectionManager getServerConnectionManagerInstance ] performPOSTRequestTo:kUserSignUpURLString
+    NSData *signUpResponseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performPOSTRequestFor:kUserSignUpURLString
                                                                                                                POSTData:newUserData
                                                                                                                response:&signUpURLResponse ];
     
-    if ( [ signUpResponse objectForKey:@"EmailStatus" ] ) {
+    NSDictionary *signUpResponse = [ NSJSONSerialization JSONObjectWithData:signUpResponseData
+                                                                    options:NSJSONReadingAllowFragments
+                                                                      error:nil ];
+    
+    if ( [ signUpResponse objectForKey:@"EmailStatus" ] != nil ) {
         
         [[ User getCurrentActiveUser ] setUserId: [ signUpResponse valueForKey:@"id" ] ];
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
++(BOOL)logOutUser{
+    
+    NSString *logoutURL = [ NSString stringWithFormat:kUserLogoutURLString, [ User getCurrentActiveUser].userId ];
+    
+    NSURLResponse *logoutURLResponse = nil;
+    
+    NSData *logoutResponseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performPUTRequestFor:logoutURL response:&logoutURLResponse ];
+    
+    NSError *logoutError;
+    
+    NSDictionary *logoutResponse = [ NSJSONSerialization JSONObjectWithData:logoutResponseData options:NSJSONReadingAllowFragments error:&logoutError ];
+    
+    if( [ logoutResponse objectForKey:@"Success"] != nil){
+        
+        [ User getCurrentActiveUser ].userId = nil;
         
         return YES;
     }

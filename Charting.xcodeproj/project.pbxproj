@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1120FC601C115A2D0071F7F6 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 1120FC5F1C115A2D0071F7F6 /* bg.png */; };
 		112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C13AE1C05C0A7007FDF2D /* SignInViewController.m */; };
 		116A08BC1C05933800AA46D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BB1C05933800AA46D8 /* main.m */; };
 		116A08BF1C05933800AA46D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BE1C05933800AA46D8 /* AppDelegate.m */; };
@@ -22,7 +23,6 @@
 		117DBEC61C0DD54200E4AEF7 /* RecentChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBEC51C0DD54200E4AEF7 /* RecentChannelViewController.m */; };
 		117DBEC91C0DDD9D00E4AEF7 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBEC81C0DDD9D00E4AEF7 /* Video.m */; };
 		117DBED01C0DE2F300E4AEF7 /* ChannelDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBECF1C0DE2F300E4AEF7 /* ChannelDataController.m */; };
-		117DBED21C0EBE8300E4AEF7 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 117DBED11C0EBE8300E4AEF7 /* bg.png */; };
 		117DBED51C0EFD4600E4AEF7 /* ServerConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBED41C0EFD4600E4AEF7 /* ServerConnectionManager.m */; };
 		117DBED81C10208200E4AEF7 /* UserDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBED71C10208200E4AEF7 /* UserDataController.m */; };
 		117DBF911C10905000E4AEF7 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 117DBF6F1C10905000E4AEF7 /* MKAnnotationView+WebCache.m */; };
@@ -59,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1120FC5F1C115A2D0071F7F6 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		112C13AD1C05C0A7007FDF2D /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		112C13AE1C05C0A7007FDF2D /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		116A08B61C05933800AA46D8 /* Charting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Charting.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,7 +89,6 @@
 		117DBEC81C0DDD9D00E4AEF7 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		117DBECE1C0DE2F300E4AEF7 /* ChannelDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelDataController.h; sourceTree = "<group>"; };
 		117DBECF1C0DE2F300E4AEF7 /* ChannelDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelDataController.m; sourceTree = "<group>"; };
-		117DBED11C0EBE8300E4AEF7 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		117DBED31C0EFD4600E4AEF7 /* ServerConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnectionManager.h; sourceTree = "<group>"; };
 		117DBED41C0EFD4600E4AEF7 /* ServerConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConnectionManager.m; sourceTree = "<group>"; };
 		117DBED61C10208200E4AEF7 /* UserDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataController.h; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				117DBF6C1C10905000E4AEF7 /* WebImage */,
-				117DBED11C0EBE8300E4AEF7 /* bg.png */,
 				116A08B81C05933800AA46D8 /* Charting */,
 				116A08D21C05933800AA46D8 /* ChartingTests */,
 				116A08B71C05933800AA46D8 /* Products */,
@@ -332,6 +331,7 @@
 		11FED8ED1C07138A00DF9625 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1120FC5F1C115A2D0071F7F6 /* bg.png */,
 				117DBEBE1C0DC10400E4AEF7 /* CAPSPageMenu.h */,
 				117DBEBF1C0DC10400E4AEF7 /* CAPSPageMenu.m */,
 				116A08C31C05933800AA46D8 /* Main.storyboard */,
@@ -423,7 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				117DBED21C0EBE8300E4AEF7 /* bg.png in Resources */,
+				1120FC601C115A2D0071F7F6 /* bg.png in Resources */,
 				11FED8F21C0735EC00DF9625 /* VideoInfoViewCell.xib in Resources */,
 				116A08C51C05933800AA46D8 /* Main.storyboard in Resources */,
 				116A08CA1C05933800AA46D8 /* LaunchScreen.xib in Resources */,

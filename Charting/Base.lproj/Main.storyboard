@@ -247,7 +247,7 @@
                                     <rect key="frame" x="70" y="262" width="76" height="21"/>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" restorationIdentifier="UserNameTextField" translatesAutoresizingMaskIntoConstraints="NO" id="6KJ-k4-TEE" userLabel="UserNameTextFieldView">
+                            <view contentMode="scaleToFill" restorationIdentifier="UserNameTextFieldView" translatesAutoresizingMaskIntoConstraints="NO" id="6KJ-k4-TEE" userLabel="UserNameTextFieldView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.80021280317164178" green="0.80021280317164178" blue="0.80021280317164178" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" label=""/>

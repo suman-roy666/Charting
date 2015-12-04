@@ -10,6 +10,7 @@
 #import "ChannelDataController.h"
 #import "User.h"
 #import "SignInViewController.h"
+#import "UserDataController.h"
 #import "ServerConnectionManager.h"
 
 @interface LogoutViewController ()
@@ -40,26 +41,9 @@
 
 - (IBAction)logoutUser:(id)sender {
     
-    NSURL *requestURL = [ NSURL URLWithString:[ NSString stringWithFormat:@"user/logout/%@/", [ User getCurrentActiveUser ].userId ]
-                                relativeToURL:[ ServerConnectionManager kBaseURL ] ];
+    BOOL status = [ UserDataController logOutUser ];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestURL
-                                                           cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                                       timeoutInterval: 10 ];
-    
-    [request setHTTPMethod: @"PUT"];
-    
-    NSError *requestError = nil;
-    NSURLResponse *urlResponse = nil;
-    
-    
-    NSDictionary *responseArray = [NSJSONSerialization JSONObjectWithData:[NSURLConnection sendSynchronousRequest:request
-                                                                                                returningResponse:&urlResponse error:&requestError]
-                                                                  options:kNilOptions error:&requestError ];
-    
-    NSNumber *status = [ responseArray objectForKey:@"Success"];
-    
-    if (status!=nil) {
+    if ( status ) {
         SignInViewController *logOutResultViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
         
         [ self presentViewController:logOutResultViewController animated:YES completion:nil ];
@@ -67,7 +51,7 @@
     } else {
         
         UIAlertView *login = [[ UIAlertView alloc] initWithTitle:@"Logout Failed"
-                                                         message:[ responseArray valueForKey:@"CustomError" ]
+                                                         message:@"User Blocked or Already Logged Out"
                                                         delegate:self
                                                cancelButtonTitle:@"Try Again"
                                                otherButtonTitles: nil ];

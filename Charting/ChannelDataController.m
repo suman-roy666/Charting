@@ -38,45 +38,41 @@ NSString *const kChannelDiscoveryURLString = @"discovery/discovery/%@/%@/%d/%@/"
 +(NSMutableArray*)getChannelDetailsFor: (NSString*)channel page:(int) pageNo {
     
     
-    NSURL *discoveryURL = [ NSURL URLWithString:[ NSString stringWithFormat: @"discovery/discovery/%@/%d/%d/%@/",channel,pageNo,10, [ User getCurrentActiveUser].userId ]
-                                  relativeToURL:[ ServerConnectionManager kBaseURL ]];
-    
-    NSMutableURLRequest *request = [ NSMutableURLRequest requestWithURL:discoveryURL
-                                                            cachePolicy: NSURLRequestReloadIgnoringLocalAndRemoteCacheData
-                                                        timeoutInterval: 10 ];
-    
-    [request setHTTPMethod: @"GET"];
-    
-    NSError *requestError = nil;
-    NSURLResponse *urlResponse = nil;
+    NSString *discoveryURL = [ NSString stringWithFormat: @"discovery/discovery/%@/%d/%d/%@/",channel,pageNo,10, [ User getCurrentActiveUser].userId ];
     
     
-    NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:[NSURLConnection sendSynchronousRequest:request
-                                                                                           returningResponse:&urlResponse
-                                                                                                       error:&requestError]
-                                                             options:kNilOptions
-                                                               error:&requestError ];
+    NSURLResponse *discoveryResponse = nil;
     
-    NSMutableArray *videoArray = [[ NSMutableArray alloc ] init ];
+    NSData *responseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performGETRequestFor:discoveryURL response:&discoveryResponse ];
     
-    for (NSDictionary *video in responseArray) {
+    if ( responseData != nil ){
         
-        Video *videoInfo = [[ Video alloc ] init ];
+        NSError *responseError = nil;
         
-        videoInfo.videoName     = [ video valueForKey:@"videoName" ];
-        videoInfo.userName      = [ video valueForKey:@"userName" ];
-        videoInfo.videoImageURL = [ video valueForKey:@"thumbNailUrl" ];
-        videoInfo.duration      = [ video valueForKey:@"videoDuration" ];
-        videoInfo.likeCount     = [ video valueForKey:@"noOfLiked" ];
-        videoInfo.commentCount  = [ video valueForKey:@"noOfComments" ];
-        videoInfo.viewCount     = [ video valueForKey:@"noOfWatch" ];
+        NSArray *responseArray = [ NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&responseError ];
         
-        [ videoArray addObject:videoInfo ];
+        NSMutableArray *videoArray = [[ NSMutableArray alloc ] init ];
         
+        for (NSDictionary *video in responseArray) {
+            
+            Video *videoInfo = [[ Video alloc ] init ];
+            
+            videoInfo.videoName     = [ video valueForKey:@"videoName" ];
+            videoInfo.userName      = [ video valueForKey:@"userName" ];
+            videoInfo.videoImageURL = [ video valueForKey:@"thumbNailUrl" ];
+            videoInfo.duration      = [ video valueForKey:@"videoDuration" ];
+            videoInfo.likeCount     = [ video valueForKey:@"noOfLiked" ];
+            videoInfo.commentCount  = [ video valueForKey:@"noOfComments" ];
+            videoInfo.viewCount     = [ video valueForKey:@"noOfWatch" ];
+            
+            [ videoArray addObject:videoInfo ];
+            
+        }
+        
+        return videoArray;
     }
     
-    
-    return videoArray;
+    return nil;
 }
 
 @end

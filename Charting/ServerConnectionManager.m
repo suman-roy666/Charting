@@ -36,7 +36,7 @@ NSString *const kBaseURLString = @"http://ec2-52-27-8-48.us-west-2.compute.amazo
     return _sharedInstance;
 }
 
-- (NSDictionary*)performGETRequestFor: (NSString*)APIURL response: (NSURLResponse **)urlResponse  {
+- (NSData*)performGETRequestFor: (NSString*)APIURL response: (NSURLResponse **)urlResponse  {
     
     NSURL *GETRequestURL = [ NSURL URLWithString:APIURL relativeToURL:_kBaseURL ];
     
@@ -53,23 +53,15 @@ NSString *const kBaseURLString = @"http://ec2-52-27-8-48.us-west-2.compute.amazo
                                                     returningResponse: urlResponse
                                                                 error: &requestError];
     
-    if (urlResponseData == nil ) {
-        
-        return nil;
-    }
-    
-    NSDictionary *urlResponseDictionary = [NSJSONSerialization JSONObjectWithData: urlResponseData
-                                                                          options: NSJSONReadingAllowFragments
-                                                                            error: &requestError ];
     if (requestError == nil ) {
         
-        return urlResponseDictionary;
+        return urlResponseData;
     }
     
     return nil;
 }
 
-- (NSDictionary*)performPOSTRequestTo:(NSString *)APIURL POSTData: (NSString*)postDataString response:(NSURLResponse *__autoreleasing *)urlResponse{
+- (NSData*)performPOSTRequestFor:(NSString *)APIURL POSTData:(NSString *)postDataString response:(NSURLResponse *__autoreleasing *)urlResponse{
     
     NSData *postData = [ postDataString dataUsingEncoding:NSASCIIStringEncoding
                                      allowLossyConversion:YES];
@@ -93,29 +85,39 @@ NSString *const kBaseURLString = @"http://ec2-52-27-8-48.us-west-2.compute.amazo
                                                      returningResponse:urlResponse
                                                                  error:&requestError ];
     
-    if (urlResponseData == nil ) {
-        
-        return nil;
-    }
-    
-    
-    NSDictionary *responseDictionary = [ NSJSONSerialization JSONObjectWithData:urlResponseData
-                                                                        options:kNilOptions
-                                                                          error:&requestError ];
-    
     if (requestError == nil ) {
         
-        return responseDictionary;
+        return urlResponseData;
     }
     
     return nil;
 }
 
-+(NSURL *)kBaseURL{
+- (NSData*)performPUTRequestFor: (NSString*)APIURL response: (NSURLResponse **)urlResponse{
     
-    return _kBaseURL;
+    NSURL *GETRequestURL = [ NSURL URLWithString:APIURL relativeToURL:_kBaseURL ];
+    
+    NSMutableURLRequest *GETRequest = [NSMutableURLRequest requestWithURL:GETRequestURL
+                                                              cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
+                                                          timeoutInterval:10 ];
+    
+    [GETRequest setHTTPMethod: @"PUT"];
+    
+    NSError *requestError = nil;
+    urlResponse = nil;
+    
+    NSData *urlResponseData = [NSURLConnection sendSynchronousRequest: GETRequest
+                                                    returningResponse: urlResponse
+                                                                error: &requestError];
+    
+    if (requestError == nil ) {
+        
+        return urlResponseData;
+    }
+    
+    
+    return nil;
 }
-
 
 
 @end

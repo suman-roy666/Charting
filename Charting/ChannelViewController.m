@@ -37,11 +37,10 @@
     // Customize page menu to your liking (optional) or use default settings by sending nil for 'options' in the init
     // Example:
     
-    UIColor *bgColor = [ UIColor grayColor ];
+    UIColor *bgColor = [ UIColor colorWithRed:( 28.0/255.0 ) green:(216.0/255.0 ) blue:1 alpha:1 ];
     
     NSDictionary *parameters = @{CAPSPageMenuOptionMenuItemSeparatorWidth: @(4.3),
                                  CAPSPageMenuOptionUseMenuLikeSegmentedControl: @(YES),
-                                 CAPSPageMenuOptionMenuItemSeparatorPercentageHeight: @(0.1),
                                  CAPSPageMenuOptionMenuHeight: @(70.0),
                                  CAPSPageMenuOptionScrollMenuBackgroundColor: bgColor
                                  };

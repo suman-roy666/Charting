@@ -10,10 +10,9 @@
 
 @interface ServerConnectionManager : NSObject
 
-+(NSURL *)kBaseURL;
-
 +(ServerConnectionManager*)getServerConnectionManagerInstance;
-- (NSDictionary*)performGETRequestFor: (NSString*)APIURL response: (NSURLResponse **)urlResponse;
-- (NSDictionary*)performPOSTRequestTo:(NSString *)APIURL POSTData: (NSString*)postDataString response:(NSURLResponse *__autoreleasing *)urlResponse;
+- (NSData*)performGETRequestFor: (NSString*)APIURL response: (NSURLResponse **)urlResponse;
+- (NSData*)performPOSTRequestFor:(NSString *)APIURL POSTData: (NSString*)postDataString response:(NSURLResponse *__autoreleasing *)urlResponse;
+- (NSData*)performPUTRequestFor: (NSString*)APIURL response: (NSURLResponse **)urlResponse;
 
 @end
