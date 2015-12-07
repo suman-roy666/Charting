@@ -13,6 +13,8 @@
 
 @interface SignInViewController ()
 
+-(void) showErrorAlertWithTitle:(NSString*)errorTitle message: (NSString*)errorMessage;
+
 @end
 
 @implementation SignInViewController
@@ -44,38 +46,77 @@
     [ self.loginIndicator startAnimating ];
     [ self.loginWaitingView setHidden:NO ];
     
-    NSString *userName = @"suman.roy@sourcebits.com";//self.userNameTextField.text;
-    NSString *userPass = @"admin1234";//self.passwordTextField.text;
     
     [ [ NSOperationQueue mainQueue ] addOperationWithBlock:^{
         
-        BOOL signIn = [ UserDataController loginUser:userName password:userPass ];
+        NSString *userName = self.userNameTextField.text;
+        NSString *userPass = self.passwordTextField.text;
+        
+        BOOL isAnyTextFieldEmpty = (
+                                    ( [ userName isEqualToString:@"" ]      || userName == nil )  ||
+                                    ( [ userPass isEqualToString:@"" ]     || userPass == nil )
+                                    
+                                    );
+        
+        if (!isAnyTextFieldEmpty) {
+            
+            NSError *error = NULL;
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+                                                                                   options:NSRegularExpressionCaseInsensitive
+                                                                                     error:&error];
+            
+            if (error) {
+                
+                NSLog(@"error %@", error);
+            }
+            
+            NSRange textRange = NSMakeRange(0, userName.length);
+            
+            NSRange matchRange = [regex rangeOfFirstMatchInString:userName options:NSMatchingReportProgress range:textRange];
+            
+            if (matchRange.location != NSNotFound){
+                
+                
+                BOOL signIn = [ UserDataController loginUser:userName password:userPass ];
+                
+                
+                if (signIn) {
+                    
+                    
+                    UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+                    
+                    [ self presentViewController:main animated:YES completion:nil];
+                    
+                } else {
+                    
+                    
+                    
+                    self.userNameTextField.text = @"";
+                    self.passwordTextField.text = @"";
+                    
+                    UIAlertView *login = [[ UIAlertView alloc] initWithTitle:@"Login Failed"
+                                                                     message:@"Incorrect Credentials"
+                                                                    delegate:self
+                                                           cancelButtonTitle:@"Try Again"
+                                                           otherButtonTitles: nil ];
+                    
+                    [ login show ];
+                    
+                }
+            } else {
+                
+                [ self showErrorAlertWithTitle:@"Invalid Email" message:@"" ];
+            }
+            
+        } else {
+            
+            [ self showErrorAlertWithTitle:@"Empty Fields" message:@"" ];
+            
+        }
         
         [ self.loginIndicator stopAnimating ];
         [ self.loginWaitingView setHidden:YES ];
         
-        if (signIn) {
-            
-            
-            UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-            
-            [ self presentViewController:main animated:YES completion:nil];
-            
-        } else {
-            
-            
-            
-            self.userNameTextField.text = @"";
-            self.passwordTextField.text = @"";
-            
-            UIAlertView *login = [[ UIAlertView alloc] initWithTitle:@"Login Failed"
-                                                             message:@"Incorrect Credentials"
-                                                            delegate:self
-                                                   cancelButtonTitle:@"Try Again"
-                                                   otherButtonTitles: nil ];
-            
-            [ login show ];
-        }
     }];
     
 }
@@ -88,4 +129,15 @@
     
     
 }
+
+-(void) showErrorAlertWithTitle:(NSString*)errorTitle message: (NSString*)errorMessage
+{
+    UIAlertView *ErrorAlert = [[UIAlertView alloc] initWithTitle: errorTitle
+                                                         message: errorMessage
+                                                        delegate: self
+                                               cancelButtonTitle: @"OK"
+                                               otherButtonTitles: nil];
+    [ErrorAlert show];
+}
+
 @end
