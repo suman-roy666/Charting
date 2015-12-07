@@ -12,6 +12,8 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    self.videoThumbnail.contentMode = UIViewContentModeScaleAspectFill;
 
 }
 

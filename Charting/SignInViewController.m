@@ -49,8 +49,8 @@
     
     [ [ NSOperationQueue mainQueue ] addOperationWithBlock:^{
         
-        NSString *userName = self.userNameTextField.text;
-        NSString *userPass = self.passwordTextField.text;
+        NSString *userName = @"a@b.c";// self.userNameTextField.text;
+        NSString *userPass = @"abc";//self.passwordTextField.text;
         
         BOOL isAnyTextFieldEmpty = (
                                     ( [ userName isEqualToString:@"" ]      || userName == nil )  ||

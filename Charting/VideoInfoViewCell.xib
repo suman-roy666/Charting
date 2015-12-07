@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-Rl-KO5" userLabel="I">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="3HZ-Rl-KO5" userLabel="I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
                     </imageView>
                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pB5-zN-BPz">
@@ -310,11 +310,11 @@
                 <constraints>
                     <constraint firstItem="pB5-zN-BPz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1uh-Hy-81A"/>
                     <constraint firstItem="UJF-HL-A89" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5dW-CJ-wtI"/>
-                    <constraint firstAttribute="bottom" secondItem="3HZ-Rl-KO5" secondAttribute="bottom" id="FWG-em-5Cz">
+                    <constraint firstItem="3HZ-Rl-KO5" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" id="FWG-em-5Cz">
                         <variation key="widthClass=compact" constant="0.0"/>
                     </constraint>
                     <constraint firstItem="3HZ-Rl-KO5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PcF-Ll-5IR"/>
-                    <constraint firstAttribute="trailing" secondItem="3HZ-Rl-KO5" secondAttribute="trailing" id="RKK-on-Idz"/>
+                    <constraint firstItem="3HZ-Rl-KO5" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" id="RKK-on-Idz"/>
                     <constraint firstItem="3HZ-Rl-KO5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Rss-Vu-qfj"/>
                     <constraint firstItem="pB5-zN-BPz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="XOP-43-GJU"/>
                     <constraint firstAttribute="bottom" secondItem="UJF-HL-A89" secondAttribute="bottom" constant="24" id="rGe-bH-nyE"/>

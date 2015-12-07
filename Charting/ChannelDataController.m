@@ -63,6 +63,7 @@ static int page = 0;
         NSError *responseError = nil;
         
         NSArray *responseArray = [ NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingAllowFragments error:&responseError ];
+
         
         NSMutableArray *videoArray = [[ NSMutableArray alloc ] init ];
         
