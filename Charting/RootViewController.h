@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController < UIPageViewControllerDataSource >
-- (IBAction)startTutorial:(id)sender;
+@interface RootViewController : UIViewController < UIPageViewControllerDataSource >
+- (IBAction)endTutorial:(id)sender;
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSArray *pageTitles;

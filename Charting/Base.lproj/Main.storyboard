@@ -390,7 +390,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TCj-jD-14Q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="374" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TCj-jD-14Q">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -506,10 +506,10 @@
             </objects>
             <point key="canvasLocation" x="6522.75" y="126.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController storyboardIdentifier="RootViewController" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" id="vXZ-lx-hvc" customClass="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -557,8 +557,8 @@
                                     <rect key="frame" x="132" y="560" width="110" height="45"/>
                                 </variation>
                                 <connections>
+                                    <action selector="endTutorial:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3S8-5Y-0Tr"/>
                                     <action selector="endTutorial:" destination="6t4-jG-lEt" eventType="touchUpInside" id="9oW-VS-ikj"/>
-                                    <action selector="startTutorial:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DFW-0T-Cqi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -598,6 +598,11 @@
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.16470588235294117" green="0.21176470588235294" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.16470588235294117" green="0.21176470588235294" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.3843137254901961" green="0.86274509803921573" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Zer-GK-mLT" kind="relationship" relationship="viewControllers" id="lzZ-9j-7JW"/>

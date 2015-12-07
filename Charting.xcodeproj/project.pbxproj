@@ -12,7 +12,7 @@
 		112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112C13AE1C05C0A7007FDF2D /* SignInViewController.m */; };
 		116A08BC1C05933800AA46D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BB1C05933800AA46D8 /* main.m */; };
 		116A08BF1C05933800AA46D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08BE1C05933800AA46D8 /* AppDelegate.m */; };
-		116A08C21C05933800AA46D8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08C11C05933800AA46D8 /* ViewController.m */; };
+		116A08C21C05933800AA46D8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 116A08C11C05933800AA46D8 /* RootViewController.m */; };
 		116A08C51C05933800AA46D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 116A08C31C05933800AA46D8 /* Main.storyboard */; };
 		116A08C71C05933800AA46D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 116A08C61C05933800AA46D8 /* Images.xcassets */; };
 		116A08CA1C05933800AA46D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116A08C81C05933800AA46D8 /* LaunchScreen.xib */; };
@@ -69,8 +69,8 @@
 		116A08BB1C05933800AA46D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		116A08BD1C05933800AA46D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		116A08BE1C05933800AA46D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		116A08C01C05933800AA46D8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		116A08C11C05933800AA46D8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		116A08C01C05933800AA46D8 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		116A08C11C05933800AA46D8 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		116A08C41C05933800AA46D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		116A08C61C05933800AA46D8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		116A08C91C05933800AA46D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -223,8 +223,8 @@
 		117DBECA1C0DDEB400E4AEF7 /* Tutorial Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				116A08C01C05933800AA46D8 /* ViewController.h */,
-				116A08C11C05933800AA46D8 /* ViewController.m */,
+				116A08C01C05933800AA46D8 /* RootViewController.h */,
+				116A08C11C05933800AA46D8 /* RootViewController.m */,
 				116A08DF1C0599BC00AA46D8 /* PageContentViewController.h */,
 				116A08E01C0599BC00AA46D8 /* PageContentViewController.m */,
 			);
@@ -454,7 +454,7 @@
 				112C13AF1C05C0A8007FDF2D /* SignInViewController.m in Sources */,
 				117DBF991C10905000E4AEF7 /* SDWebImagePrefetcher.m in Sources */,
 				117DBFA01C10905000E4AEF7 /* UIView+WebCacheOperation.m in Sources */,
-				116A08C21C05933800AA46D8 /* ViewController.m in Sources */,
+				116A08C21C05933800AA46D8 /* RootViewController.m in Sources */,
 				117DBEC61C0DD54200E4AEF7 /* RecentChannelViewController.m in Sources */,
 				117DBF9C1C10905000E4AEF7 /* UIImage+MultiFormat.m in Sources */,
 				117DBF9D1C10905000E4AEF7 /* UIImage+WebP.m in Sources */,

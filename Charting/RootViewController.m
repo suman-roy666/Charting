@@ -6,15 +6,15 @@
 //  Copyright (c) 2015 sourcebits. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RootViewController.h"
 #import "PageContentViewController.h"
 #import "SignInViewController.h"
 
-@interface ViewController ()
+@interface RootViewController ()
 
 @end
 
-@implementation ViewController
+@implementation RootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,9 +32,9 @@
     
     // Change the size of page view controller
     self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    UIColor *bgColor = [ UIColor colorWithRed:( 28.0/255.0 ) green:(216.0/255.0 ) blue:1 alpha:1 ];
+    UIColor *bgColor = [ UIColor colorWithRed:( 28.0/255.0 ) green:(216.0/255.0 ) blue:1.0 alpha:1.0 ];
     
-    [ self.pageViewController.view setBackgroundColor:bgColor ];    
+    [ self.pageViewController.view setBackgroundColor:bgColor ];
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
@@ -47,7 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)startTutorial:(id)sender {
+- (IBAction)endTutorial:(id)sender {
     
 //    PageContentViewController *startingViewController = [self viewControllerAtIndex:0];
 //    NSArray *viewControllers = @[startingViewController];

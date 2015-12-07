@@ -7,7 +7,7 @@
 //
 
 #import "PageContentViewController.h"
-#import "ViewController.h"
+#import "RootViewController.h"
 #import "SignInViewController.h"
 
 @interface PageContentViewController ()

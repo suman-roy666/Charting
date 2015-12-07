@@ -40,15 +40,6 @@ static bool moreDataAvailable = true;
     
     channelVideoList = [[ NSMutableArray alloc ] initWithArray:[ popularChannelDataController retrieveChannelDataFromRoot:YES ] ];
     
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    
-    
-    [ self.tableView setFrame: CGRectMake(self.tableView.frame.origin.x,
-                                          self.tableView.frame.origin.y,
-                                          self.tableView.frame.size.width,
-                                          (self.tableView.frame.size.height - self.bottomMargin*2))];
     
 }
 
@@ -62,6 +53,7 @@ static bool moreDataAvailable = true;
     VideoInfoViewCell *cell = [ self.tableView dequeueReusableCellWithIdentifier:videoInfoViewCellIdentifier ];
     
     Video *cellVideo = channelVideoList[ indexPath.row ];
+
     
     cell.videoNameLabel.text = cellVideo.videoName;
     cell.videoUserNameLabel.text = cellVideo.userName;
@@ -79,9 +71,7 @@ static bool moreDataAvailable = true;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    VideoInfoViewCell *cell = [ self.tableView dequeueReusableCellWithIdentifier:videoInfoViewCellIdentifier ];
-    
-    return cell.frame.size.height;
+     return 375;
     
 }
 

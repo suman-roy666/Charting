@@ -61,7 +61,7 @@
         if (!isAnyTextFieldEmpty) {
             
             NSError *error = NULL;
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}"
+            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]"
                                                                                    options:NSRegularExpressionCaseInsensitive
                                                                                      error:&error];
             
@@ -94,15 +94,8 @@
                     self.userNameTextField.text = @"";
                     self.passwordTextField.text = @"";
                     
-                    UIAlertView *login = [[ UIAlertView alloc] initWithTitle:@"Login Failed"
-                                                                     message:@"Incorrect Credentials"
-                                                                    delegate:self
-                                                           cancelButtonTitle:@"Try Again"
-                                                           otherButtonTitles: nil ];
-                    
-                    [ login show ];
-                    
-                }
+                    [ self showErrorAlertWithTitle:@"Login Failed" message:@"Incorrect Credentials" ];
+                                    }
             } else {
                 
                 [ self showErrorAlertWithTitle:@"Invalid Email" message:@"" ];
