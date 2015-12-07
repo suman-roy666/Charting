@@ -54,6 +54,8 @@
 
 - (IBAction)endTutorial:(id)sender {
     
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"hasSeenTutorial"];
+    
     SignInViewController *signInPage = [self.storyboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
     
     [ self presentViewController:signInPage animated:YES completion:nil ];

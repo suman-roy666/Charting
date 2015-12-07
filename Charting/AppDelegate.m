@@ -19,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    NSMutableString *startingScreenIdentifier = [[ NSMutableString alloc] init ];
+    
     // Override point for customization after application launch.
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
@@ -30,8 +32,15 @@
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
-    UINavigationController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:@"UserSignInNavigationController"];
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"hasSeenTutorial"]){
+        
+        startingScreenIdentifier = [ NSMutableString stringWithString: @"RootViewController" ];
+        
+    } else {
     
+        startingScreenIdentifier = [ NSMutableString stringWithString: @"UserSignInNavigationController" ];
+    }
+    UINavigationController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:startingScreenIdentifier ];
     self.window.rootViewController = rootController;
     [self.window makeKeyAndVisible];
     
