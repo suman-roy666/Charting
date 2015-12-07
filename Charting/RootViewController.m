@@ -32,9 +32,7 @@
     
     // Change the size of page view controller
     self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    UIColor *bgColor = [ UIColor colorWithRed:( 28.0/255.0 ) green:(216.0/255.0 ) blue:1.0 alpha:1.0 ];
-    
-    [ self.pageViewController.view setBackgroundColor:bgColor ];
+   
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];

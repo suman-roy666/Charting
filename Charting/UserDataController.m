@@ -9,8 +9,12 @@
 #import "UserDataController.h"
 #import "ServerConnectionManager.h"
 #import "User.h"
+#import "KeychainItemWrapper.h"
 
-@implementation UserDataController
+@implementation UserDataController{
+    
+    
+}
 
 /*
  Login Format
@@ -43,6 +47,14 @@ NSString *const kUserSignUpDataFormat = @"{\"name\"         :\"%@\","
 
 NSString *const kUserLogoutURLString = @"user/logout/%@/";
 
+static KeychainItemWrapper *userDataKeychain ;
+
++(void)initialize{
+    
+    userDataKeychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
+    
+}
+
 + (BOOL)loginUser:(NSString *)userEmail password:(NSString *)password{
     
     NSString *loginURL = [ NSString stringWithFormat:kUserLoginURLString, userEmail, password ];
@@ -64,6 +76,9 @@ NSString *const kUserLogoutURLString = @"user/logout/%@/";
         NSString *uId = [ loginResponse valueForKey:@"id" ];
         
         currentUser.userId = uId;
+        
+        [userDataKeychain setObject:password forKey:(__bridge id)(kSecValueData)];
+        [userDataKeychain setObject:uId forKey:(__bridge id)(kSecAttrAccount)];
         
         return YES;
     }
@@ -87,7 +102,13 @@ NSString *const kUserLogoutURLString = @"user/logout/%@/";
     
     if ( [ signUpResponse objectForKey:@"EmailStatus" ] != nil ) {
         
-        [[ User getCurrentActiveUser ] setUserId: [ signUpResponse valueForKey:@"id" ] ];
+        NSString *userId = [ signUpResponse valueForKey:@"id" ];
+        
+        [[ User getCurrentActiveUser ] setUserId: userId ];
+        
+        [userDataKeychain setObject:password forKey:(__bridge id)(kSecValueData)];
+        [userDataKeychain setObject:userId forKey:(__bridge id)(kSecAttrAccount)];
+
         
         return YES;
     }
@@ -110,6 +131,23 @@ NSString *const kUserLogoutURLString = @"user/logout/%@/";
     if( [ logoutResponse objectForKey:@"Success"] != nil){
         
         [ User getCurrentActiveUser ].userId = nil;
+        
+        [ userDataKeychain resetKeychainItem ];
+        
+        return YES;
+    }
+    
+    return NO;
+}
+
++(BOOL)checkUserLoginStatus{
+    
+    //NSString *password = [ [ NSString alloc ] initWithData:[userDataKeychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding ];
+    NSString *userID = [userDataKeychain objectForKey:(__bridge id)(kSecAttrAccount)];
+    
+    if ( ![userID isEqualToString:@"" ]) {
+        
+        [[ User getCurrentActiveUser] setUserId: userID ];
         
         return YES;
     }

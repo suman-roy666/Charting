@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.loginIndicator setHidden:YES ];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,7 +82,6 @@
                 
                 
                 if (signIn) {
-                    
                     
                     UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
                     

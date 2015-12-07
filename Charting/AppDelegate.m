@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SignInViewController.h"
+#import "UserDataController.h"
 #import "ServerConnectionManager.h"
 
 @interface AppDelegate ()
@@ -20,12 +21,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     NSMutableString *startingScreenIdentifier = [[ NSMutableString alloc] init ];
+    UIColor *bgColor = [ UIColor colorWithRed:( 28.0/255.0 ) green:(216.0/255.0 ) blue:1.0 alpha:1.0 ];
     
     // Override point for customization after application launch.
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    pageControl.backgroundColor = [UIColor whiteColor];
+    pageControl.backgroundColor = bgColor;
     
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
@@ -37,14 +39,22 @@
         startingScreenIdentifier = [ NSMutableString stringWithString: @"RootViewController" ];
         
     } else {
-    
-        startingScreenIdentifier = [ NSMutableString stringWithString: @"UserSignInNavigationController" ];
+        
+        if ( [ UserDataController checkUserLoginStatus] ){
+            
+            startingScreenIdentifier = [ NSMutableString stringWithString: @"TabBarController" ];
+            
+        } else {
+            
+            startingScreenIdentifier = [ NSMutableString stringWithString: @"UserSignInNavigationController" ];
+            
+        }
     }
-    UINavigationController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:startingScreenIdentifier ];
+    UIViewController *rootController = [ mainStoryboard instantiateViewControllerWithIdentifier:startingScreenIdentifier ];
     self.window.rootViewController = rootController;
     [self.window makeKeyAndVisible];
     
-    return YES; 
+    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
