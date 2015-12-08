@@ -94,16 +94,16 @@
                     self.userNameTextField.text = @"";
                     self.passwordTextField.text = @"";
                     
-                    [ self showErrorAlertWithTitle:@"Login Failed" message:@"Incorrect Credentials" ];
+                    [ self showErrorAlertWithTitle:@"Login Failed" message:@"Incorrect credentials or connection error. Please check both and try again." ];
                                     }
             } else {
                 
-                [ self showErrorAlertWithTitle:@"Invalid Email" message:@"" ];
+                [ self showErrorAlertWithTitle:@"Invalid Email" message:@"Email address is not in a valid format" ];
             }
             
         } else {
             
-            [ self showErrorAlertWithTitle:@"Empty Fields" message:@"" ];
+            [ self showErrorAlertWithTitle:@"Empty Fields" message:@"Cannot login without credentials" ];
             
         }
         

@@ -24,21 +24,21 @@
 NSString *const kUserLoginURLString= @"user/login/%@/%@/DIV005/0/";
 NSString *const kUserSignUpURLString= @"user/createUser";
 NSString *const kUserSignUpDataFormat = @"{\"name\"         :\"%@\","
-                                        "\"password\"       :\"%@\","
-                                        "\"emailId\"        :\"%@\","
-                                        "\"instagramId\"    :\"\","
-                                        "\"deviceId\"       :\"DIV0005\","
-                                        "\"description\"    :\"\","
-                                        "\"websiteUrl\"     :\"\","
-                                        "\"facebookUrl\"    :\"\","
-                                        "\"twitterUrl\"     :\"\","
-                                        "\"instagramUrl\"   :\"\""
-                                        ",\"photoUrl\"      :\"\","
-                                        "\"deviceType\"     :0,"
-                                        "\"city\"           :\"\","
-                                        "\"state\"          :\"\","
-                                        "\"country\"        :\"\","
-                                        "\"role\"           :3}";
+"\"password\"       :\"%@\","
+"\"emailId\"        :\"%@\","
+"\"instagramId\"    :\"\","
+"\"deviceId\"       :\"DIV0005\","
+"\"description\"    :\"\","
+"\"websiteUrl\"     :\"\","
+"\"facebookUrl\"    :\"\","
+"\"twitterUrl\"     :\"\","
+"\"instagramUrl\"   :\"\""
+",\"photoUrl\"      :\"\","
+"\"deviceType\"     :0,"
+"\"city\"           :\"\","
+"\"state\"          :\"\","
+"\"country\"        :\"\","
+"\"role\"           :3}";
 
 /*
  Logout Format
@@ -62,27 +62,28 @@ static KeychainItemWrapper *userDataKeychain ;
     NSURLResponse *serverResponse;
     
     NSData *loginResponseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performGETRequestFor:loginURL
-                                                                                                              response:&serverResponse ];
-    
-    NSError *loginError = nil;
-    
-    NSDictionary *loginResponse = [ NSJSONSerialization JSONObjectWithData:loginResponseData
-                                                                   options:NSJSONReadingAllowFragments
-                                                                     error:&loginError ];
-    
-    if ( loginResponse != nil ) {
+                                                                                                            response:&serverResponse ];
+    if (loginResponseData!=nil) {
         
-        User *currentUser = [ User getCurrentActiveUser];
-        NSString *uId = [ loginResponse valueForKey:@"id" ];
         
-        currentUser.userId = uId;
+        NSError *loginError = nil;
         
-        [userDataKeychain setObject:password forKey:(__bridge id)(kSecValueData)];
-        [userDataKeychain setObject:uId forKey:(__bridge id)(kSecAttrAccount)];
+        NSDictionary *loginResponse = [ NSJSONSerialization JSONObjectWithData:loginResponseData
+                                                                       options:NSJSONReadingAllowFragments
+                                                                         error:&loginError ];
         
-        return YES;
+        if ( loginResponse != nil ) {
+            
+            User *currentUser = [ User getCurrentActiveUser];
+            NSString *uId = [ loginResponse valueForKey:@"id" ];
+            
+            currentUser.userId = uId;
+            
+            [userDataKeychain setObject:uId forKey:(__bridge id)(kSecAttrAccount)];
+            
+            return YES;
+        }
     }
-    
     return NO;
 }
 
@@ -93,26 +94,27 @@ static KeychainItemWrapper *userDataKeychain ;
     NSURLResponse *signUpURLResponse;
     
     NSData *signUpResponseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performPOSTRequestFor:kUserSignUpURLString
-                                                                                                               POSTData:newUserData
-                                                                                                               response:&signUpURLResponse ];
-    
-    NSDictionary *signUpResponse = [ NSJSONSerialization JSONObjectWithData:signUpResponseData
-                                                                    options:NSJSONReadingAllowFragments
-                                                                      error:nil ];
-    
-    if ( [ signUpResponse objectForKey:@"EmailStatus" ] != nil ) {
+                                                                                                              POSTData:newUserData
+                                                                                                              response:&signUpURLResponse ];
+    if (signUpResponseData!=nil) {
         
-        NSString *userId = [ signUpResponse valueForKey:@"id" ];
         
-        [[ User getCurrentActiveUser ] setUserId: userId ];
+        NSDictionary *signUpResponse = [ NSJSONSerialization JSONObjectWithData:signUpResponseData
+                                                                        options:NSJSONReadingAllowFragments
+                                                                          error:nil ];
         
-        [userDataKeychain setObject:password forKey:(__bridge id)(kSecValueData)];
-        [userDataKeychain setObject:userId forKey:(__bridge id)(kSecAttrAccount)];
-
-        
-        return YES;
+        if ( [ signUpResponse objectForKey:@"EmailStatus" ] != nil ) {
+            
+            NSString *userId = [ signUpResponse valueForKey:@"id" ];
+            
+            [[ User getCurrentActiveUser ] setUserId: userId ];
+            
+            [userDataKeychain setObject:userId forKey:(__bridge id)(kSecAttrAccount)];
+            
+            
+            return YES;
+        }
     }
-    
     return NO;
 }
 
@@ -124,25 +126,25 @@ static KeychainItemWrapper *userDataKeychain ;
     
     NSData *logoutResponseData = [[ ServerConnectionManager getServerConnectionManagerInstance ] performPUTRequestFor:logoutURL response:&logoutURLResponse ];
     
-    NSError *logoutError;
-    
-    NSDictionary *logoutResponse = [ NSJSONSerialization JSONObjectWithData:logoutResponseData options:NSJSONReadingAllowFragments error:&logoutError ];
-    
-    if( [ logoutResponse objectForKey:@"Success"] != nil){
+    if (logoutResponseData!=nil) {
+        NSError *logoutError;
         
-        [ User getCurrentActiveUser ].userId = nil;
+        NSDictionary *logoutResponse = [ NSJSONSerialization JSONObjectWithData:logoutResponseData options:NSJSONReadingAllowFragments error:&logoutError ];
         
-        [ userDataKeychain resetKeychainItem ];
-        
-        return YES;
+        if( [ logoutResponse objectForKey:@"Success"] != nil){
+            
+            [ User getCurrentActiveUser ].userId = nil;
+            
+            [ userDataKeychain resetKeychainItem ];
+            
+            return YES;
+        }
     }
-    
     return NO;
 }
 
 +(BOOL)checkUserLoginStatus{
     
-    //NSString *password = [ [ NSString alloc ] initWithData:[userDataKeychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding ];
     NSString *userID = [userDataKeychain objectForKey:(__bridge id)(kSecAttrAccount)];
     
     if ( ![userID isEqualToString:@"" ]) {
