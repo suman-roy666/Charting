@@ -10,8 +10,6 @@
 
 @interface User : NSObject
 
-+(User*)getCurrentActiveUser;
-
 @property NSString *userId;
 @property NSString *userName;
 

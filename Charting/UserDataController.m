@@ -8,7 +8,6 @@
 
 #import "UserDataController.h"
 #import "ServerConnectionManager.h"
-#import "User.h"
 #import "KeychainItemWrapper.h"
 
 @implementation UserDataController{
@@ -49,6 +48,23 @@ NSString *const kUserLogoutURLString = @"user/logout/%@/";
 
 static KeychainItemWrapper *userDataKeychain ;
 
+
++(User*)getCurrentActiveUser{
+    
+    static User *_sharedInstance = nil;
+    
+    // 2
+    static dispatch_once_t oncePredicate;
+    
+    // 3
+    dispatch_once(&oncePredicate, ^{
+        _sharedInstance = [[User alloc] init];
+    });
+    
+    
+    return _sharedInstance;
+}
+
 +(void)initialize{
     
     userDataKeychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
@@ -74,7 +90,7 @@ static KeychainItemWrapper *userDataKeychain ;
         
         if ( loginResponse != nil ) {
             
-            User *currentUser = [ User getCurrentActiveUser];
+            User *currentUser = [ UserDataController getCurrentActiveUser];
             NSString *uId = [ loginResponse valueForKey:@"id" ];
             
             currentUser.userId = uId;
@@ -107,7 +123,7 @@ static KeychainItemWrapper *userDataKeychain ;
             
             NSString *userId = [ signUpResponse valueForKey:@"id" ];
             
-            [[ User getCurrentActiveUser ] setUserId: userId ];
+            [[ UserDataController getCurrentActiveUser ] setUserId: userId ];
             
             [userDataKeychain setObject:userId forKey:(__bridge id)(kSecAttrAccount)];
             
@@ -120,7 +136,7 @@ static KeychainItemWrapper *userDataKeychain ;
 
 +(BOOL)logOutUser{
     
-    NSString *logoutURL = [ NSString stringWithFormat:kUserLogoutURLString, [ User getCurrentActiveUser].userId ];
+    NSString *logoutURL = [ NSString stringWithFormat:kUserLogoutURLString, [ UserDataController getCurrentActiveUser].userId ];
     
     NSURLResponse *logoutURLResponse = nil;
     
@@ -133,7 +149,7 @@ static KeychainItemWrapper *userDataKeychain ;
         
         if( [ logoutResponse objectForKey:@"Success"] != nil){
             
-            [ User getCurrentActiveUser ].userId = nil;
+            [ UserDataController getCurrentActiveUser ].userId = nil;
             
             [ userDataKeychain resetKeychainItem ];
             
@@ -149,7 +165,7 @@ static KeychainItemWrapper *userDataKeychain ;
     
     if ( ![userID isEqualToString:@"" ]) {
         
-        [[ User getCurrentActiveUser] setUserId: userID ];
+        [[ UserDataController getCurrentActiveUser] setUserId: userID ];
         
         return YES;
     }

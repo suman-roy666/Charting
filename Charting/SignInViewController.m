@@ -54,6 +54,10 @@
     
     [ loginQueue addOperationWithBlock:^{
         
+        /**
+         *  @TODO Remove hardcodede values
+         */
+        
         NSString *userName = @"a@b.c";// self.userNameTextField.text;
         NSString *userPass = @"abc";//self.passwordTextField.text;
         

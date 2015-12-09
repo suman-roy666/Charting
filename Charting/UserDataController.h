@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 @interface UserDataController : NSObject
 
++(User*)getCurrentActiveUser;
 +(BOOL)loginUser:(NSString*) userName password:(NSString*) password;
 +(BOOL)createNewUser: (NSString*)userName password: (NSString*)password emailId: (NSString*)emailId;
 +(BOOL)logOutUser;

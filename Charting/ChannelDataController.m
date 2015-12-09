@@ -9,7 +9,7 @@
 #import "ChannelDataController.h"
 #import "Video.h"
 #import "ServerConnectionManager.h"
-#import "User.h"
+#import "UserDataController.h"
 
 #define kPageLength
 
@@ -33,7 +33,7 @@ static int page = 0;
     
     if (self) {
         
-        discoveryURLString = [ NSString stringWithFormat:kChannelDiscoveryURLString, channel, @"%d", pageLength, [ User getCurrentActiveUser].userId  ];
+        discoveryURLString = [ NSString stringWithFormat:kChannelDiscoveryURLString, channel, @"%d", pageLength, [ UserDataController getCurrentActiveUser].userId  ];
     }
     
     return self;

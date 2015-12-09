@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Charting/UserDataController.m"
-            timestampString = "471248570.321456"
+            timestampString = "471337892.10012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "+checkUserLoginStatus"
             landmarkType = "5">
          </BreakpointContent>

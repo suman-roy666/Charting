@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Page View Controller-->
@@ -537,24 +539,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v6b-7B-t1f">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v6b-7B-t1f">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="39"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="89" width="343" height="129"/>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="134" y="176" width="107" height="47"/>
                                 </variation>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-mf-vRC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPr-mf-vRC">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YPr-mf-vRC" secondAttribute="height" multiplier="91:40" id="2Vx-Sk-sAa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                 <state key="normal" title="Done" backgroundImage="button.png">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="132" y="560" width="110" height="45"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2Vx-Sk-sAa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="142" y="564" width="91" height="40"/>
+                                    <mask key="constraints">
+                                        <include reference="2Vx-Sk-sAa"/>
+                                    </mask>
                                 </variation>
                                 <connections>
                                     <action selector="endTutorial:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="3S8-5Y-0Tr"/>
@@ -563,16 +576,36 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.81960784313725488" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerXWithinMargins" secondItem="v6b-7B-t1f" secondAttribute="centerXWithinMargins" id="9Uu-ny-H6V"/>
+                            <constraint firstItem="VhJ-tc-1Kb" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="v6b-7B-t1f" secondAttribute="top" constant="156" placeholder="YES" id="Lh3-fa-YEg">
+                                <variation key="widthClass=compact" constant="-156"/>
+                            </constraint>
+                            <constraint firstItem="ayf-F2-ms4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YPr-mf-vRC" secondAttribute="bottom" constant="63" id="qLK-BY-MXD"/>
+                            <constraint firstAttribute="centerXWithinMargins" secondItem="YPr-mf-vRC" secondAttribute="centerXWithinMargins" id="qhB-BO-gE8"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="v6b-7B-t1f"/>
                                 <exclude reference="YPr-mf-vRC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Lh3-fa-YEg"/>
+                                <exclude reference="9Uu-ny-H6V"/>
+                                <exclude reference="qhB-BO-gE8"/>
+                                <exclude reference="qLK-BY-MXD"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="v6b-7B-t1f"/>
                                 <include reference="YPr-mf-vRC"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Lh3-fa-YEg"/>
+                                <include reference="9Uu-ny-H6V"/>
+                                <include reference="qhB-BO-gE8"/>
+                                <include reference="qLK-BY-MXD"/>
                             </mask>
                         </variation>
                     </view>
