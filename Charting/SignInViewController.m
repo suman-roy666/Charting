@@ -17,13 +17,17 @@
 
 @end
 
-@implementation SignInViewController
+@implementation SignInViewController{
+    
+    NSOperationQueue *loginQueue;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self.loginIndicator setHidden:YES ];
     
+    loginQueue = [[NSOperationQueue alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +52,7 @@
     [ self.loginWaitingView setHidden:NO ];
     
     
-    [ [ NSOperationQueue mainQueue ] addOperationWithBlock:^{
+    [ loginQueue addOperationWithBlock:^{
         
         NSString *userName = @"a@b.c";// self.userNameTextField.text;
         NSString *userPass = @"abc";//self.passwordTextField.text;
@@ -83,9 +87,13 @@
                 
                 if (signIn) {
                     
-                    UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-                    
-                    [ self presentViewController:main animated:YES completion:nil];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        UITabBarController *main = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+                        
+                        [ self presentViewController:main animated:YES completion:nil];
+                        
+                    });
                     
                 } else {
                     
@@ -95,7 +103,8 @@
                     self.passwordTextField.text = @"";
                     
                     [ self showErrorAlertWithTitle:@"Login Failed" message:@"Incorrect credentials or connection error. Please check both and try again." ];
-                                    }
+                    
+                }
             } else {
                 
                 [ self showErrorAlertWithTitle:@"Invalid Email" message:@"Email address is not in a valid format" ];

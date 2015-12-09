@@ -24,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    signUpQueue = [[ NSOperationQueue alloc ] init ];
+    
     [ self.signUpActivityIndicator stopAnimating ];
     [ self.signUpWaitingView setHidden:YES ];
     // Do any additional setup after loading the view.
@@ -42,7 +44,7 @@
     
     
     
-    [ [ NSOperationQueue mainQueue ] addOperationWithBlock:^{
+    [ signUpQueue addOperationWithBlock:^{
         
         NSString *userName = self.userNameTextField.text;
         NSString *userEmail = self.emailTextField.text;
@@ -87,9 +89,14 @@
                     
                     if (userSignUpStatus) {
                         
-                        UITabBarController *mainTabBar = [ self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            
+                            UITabBarController *mainTabBar = [ self.storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+                            
+                            [ self showViewController:mainTabBar sender:self ];
+                        });
                         
-                        [ self presentViewController:mainTabBar animated:YES completion:nil ];
                         
                     } else {
                         
@@ -121,7 +128,7 @@
             [ self.confirmPasswordTextField setText:@"" ];
             
         }
-     
+        
         [ self.signUpWaitingView setHidden:YES ];
         
         [ self.signUpActivityIndicator stopAnimating ];
